@@ -1,0 +1,11 @@
+{
+    "css.lint.unknownAtRules": "ignore",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+    "editor.autoIndentOnPaste": true
+}

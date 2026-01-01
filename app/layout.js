@@ -1,29 +1,46 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
+
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { ThemeProvider } from "@/components/theme-provider";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+import Header from "@/components/Header";
+import { ClerkProvider } from "@clerk/nextjs";
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "PathwiseAI",
-  description: "Wise Career Guidance",
+  title: "PathwiseAI - Wise Career Guidance",
+  description: "Lighting the Way with Wise Guidance Along Your Career Path",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <ClerkProvider>
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${manrope.variable} antialiased`}
+        suppressHydrationWarning
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* header */}
+          <Header />
+          <div className="min-h-screen container">{children}</div>
+          {/* footer */}
+          <footer className="bg-neutral-900">
+          <div className="text-center p-5 text-neutral-500">© PathwiseAI • Made with 💗 by Harman Khurmi</div>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
