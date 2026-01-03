@@ -15,7 +15,16 @@ const Header = () => {
     <>
       <nav className="fixed top-0 z-50 w-full">
         <header className="flex justify-between items-center p-5 px-16 dark:bg-neutral-900/15 backdrop-blur-lg">
-          <Image src={assets.lightLogo} alt="logo" />
+          <Image
+            src={assets.darkLogo}
+            alt="logo"
+            className="w-32 block dark:hidden"
+          />
+          <Image
+            src={assets.lightLogo}
+            alt="logo"
+            className="w-32 hidden dark:block"
+          />
           <div className="flex items-center gap-5">
             <ThemeToggle />
             <SignedOut>
