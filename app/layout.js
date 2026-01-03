@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} antialiased`}
+        className={`${manrope.variable} antialiased scroll-smooth`}
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         >
           {/* header */}
           <Header />
-          <div className="min-h-screen container">{children}</div>
+          <div className="min-h-screen">{children}</div>
           {/* footer */}
           <footer className="bg-neutral-900">
           <div className="text-center p-5 text-neutral-500">© PathwiseAI • Made with 💗 by Harman Khurmi</div>
