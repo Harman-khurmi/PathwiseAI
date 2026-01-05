@@ -31,10 +31,10 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          {/* header */}
+          {/* header component*/}
           <Header />
           <div className="min-h-screen">{children}</div>
-          {/* footer */}
+          {/* footer component*/}
           <footer className="bg-neutral-900">
           <div className="text-center p-5 text-neutral-500">© PathwiseAI • Made with 💗 by Harman Khurmi</div>
           </footer>
