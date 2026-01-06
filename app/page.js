@@ -34,7 +34,15 @@ export default function Home() {
               height={800}
               src={assets.heroImage}
               alt="hero"
-              className="absolute -top-10 -right-10"
+              className="absolute -top-10 -right-10 block dark:hidden"
+              loading="eager"
+            />
+            <Image
+              width={800}
+              height={800}
+              src={assets.heroImageDark}
+              alt="hero"
+              className="absolute -top-10 -right-10 hidden dark:block"
               loading="eager"
             />
           </div>

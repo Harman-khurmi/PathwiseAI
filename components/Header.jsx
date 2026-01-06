@@ -30,7 +30,7 @@ const Header = () => {
             <SignedOut>
               <SignInButton />
               <SignUpButton>
-                <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base py-2 px-4 cursor-pointer">
+                <button className="text-ceramic-white rounded-full font-medium text-sm sm:text-base py-2 px-4 cursor-pointer">
                   Sign Up
                 </button>
               </SignUpButton>
