@@ -23,6 +23,11 @@ import emily from "../public/63.jpg";
 import rahul from "../public/74.jpg";
 import khyati from "../public/69.jpg";
 
+import github from "../public/github.svg";
+import figma from "../public/figma.svg";
+import linkedin from "../public/linkedin.svg";
+import behance from "../public/behance.svg";
+
 
 export const assets ={
     lightLogo,
@@ -165,5 +170,32 @@ export const FAQs = [
     {
         question:"Is my personal and career data secure on PathwiseAI?",
         answer:"Yes. Data security and privacy are a top priority. Your information is encrypted and handled securely, and it is never shared with third parties without your explicit consent."
+    },
+]
+
+export const socialMedia = [
+    {
+        name: "Github",
+        icon: github,
+        iconDark: github,
+        link: "https://github.com/Harman-khurmi"
+    },
+    {
+        name: "Figma",
+        icon: figma,
+        iconDark: figma,
+        link: "https://www.figma.com/@harmankhurmi"
+    },
+    {
+        name: "LinkedIn",
+        icon: linkedin,
+        iconDark: linkedin,
+        link: "https://www.linkedin.com/in/harmankhurmi/"
+    },
+    {
+        name: "Behance",
+        icon: behance,
+        iconDark: behance,
+        link: "https://www.behance.net/harmankhurmi"
     },
 ]
