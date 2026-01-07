@@ -39,6 +39,17 @@ export const assets ={
     gradientSparkle,
 }
 
+export const navItems = [
+    { name: "Home", link: "#" },
+    { name: "Features", link: "#Features" },
+    { name: "Process", link: "#Process" },
+    { name: "Reviews", link: "#Reviews" },
+]
+
+export const icons = {
+    
+}
+
 export const testimonials =[
     {
         name:"Priya S.",

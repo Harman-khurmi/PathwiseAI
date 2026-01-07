@@ -4,10 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+
+  --color-text-dark: oklch(19.28% 0.045 243.97);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-manrope);
-  --font-mono: var(--font-manrope);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -44,17 +46,30 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Gradient */
+  --gradient-primary: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  --gradient-button: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(99.07% 0.003 354.69);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(78.09% 0.118 225.76);
+  --primary-dark:oklch(59.23% 0.213 264.65);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -82,13 +97,15 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(16.07% 0.027 265.83);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  /* --primary: oklch(0.922 0 0); */
+  --primary: oklch(78.09% 0.118 225.76);
+  --primary-dark:oklch(59.23% 0.213 264.65);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -119,7 +136,27 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  .nav-items {
+    @apply mx-4 lg:mx-6 text-sm lg:text-base text-text-dark dark:text-white border-primary hidden sm:inline-block shrink-0 transition-all duration-200;
+  }
+
+  .nav-items:hover {
+    @apply border-b -translate-y-0.5 border-primary transition-transform duration-200 ease-out;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-b from-[#55C7F1] to-[#3C71FA] text-[#FEFBFC] rounded-md px-6 py-2 font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#3C71FA]/30 dark:hover:shadow-[#011627]/30 hover:from-[#39BDEE] hover:to-[#1D58F0] active:translate-y-0 active:shadow-md focus:outline-none focus:ring-2 focus:ring-[#55C7F1]/50 cursor-pointer
+  }
+
+  .btn-outline {
+    @apply rounded-md px-6 py-2 hover:bg-[#011627]/5 dark:hover:bg-[#FEFBFC]/5 font-medium text-[#011627] dark:text-[#FEFBFC] bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 outline-1 outline-[#011627]/20 hover:outline-[#011627]/90 dark:outline-[#FEFBFC]/30 dark:hover:outline-[#FEFBFC]/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55C7F1]/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-[#011627]/30 dark:hover:shadow-[#011627]/30
+  }
+
 }

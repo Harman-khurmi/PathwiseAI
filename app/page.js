@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   return (
     <>
-      <section id="hero" className="overflow-hidden">
+      <section id="hero">
         <div className=" px-16 py-40 grid md:grid-cols-2 items-start justify-center w-full relative h-fit">
+          {/* hero text content */}
           <div className="flex flex-col gap-8">
+            {/* heading */}
             <div className=" ">
               <h1 className="text-6xl font-bold text-[#080D1A] dark:text-white">
                 Wise Guidance for{" "}
