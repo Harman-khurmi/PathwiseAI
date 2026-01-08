@@ -6,14 +6,14 @@ export default function Home() {
   return (
     <>
       <section id="hero">
-        <div className=" px-16 py-40 grid md:grid-cols-2 items-start justify-center w-full relative h-fit">
+        <div className=" px-16 py-40 grid grid-cols-1 lg:grid-cols-2 items-start relative overflow-clip h-fit">
           {/* hero text content */}
           <div className="flex flex-col gap-8">
             {/* heading */}
-            <div className=" ">
+            <div className="">
               <h1 className="text-6xl font-bold text-[#080D1A] dark:text-white">
                 Wise Guidance for{" "}
-                <span className="bg-linear-to-t from-[#2C4878] to-[#5FD1DA] bg-clip-text text-transparent">
+                <span className="bg-clip-text text-transparent gradient-primary">
                   Every Step
                 </span>{" "}
                 of Your Career Path
@@ -30,21 +30,22 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="">
+          {/* hero image */}
+          <div className="flex">
             <Image
-              width={800}
-              height={800}
+              width={1000}
+              height={1000}
               src={assets.heroImage}
               alt="hero"
-              className="absolute -top-10 -right-10 block dark:hidden"
+              className="lg:absolute top-0  dark:hidden"
               loading="eager"
             />
             <Image
-              width={800}
-              height={800}
+              width={1000}
+              height={1000}
               src={assets.heroImageDark}
               alt="hero"
-              className="absolute -top-10 -right-10 hidden dark:block"
+              className="absolute top-0 hidden lg:block dark:block"
               loading="eager"
             />
           </div>

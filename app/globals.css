@@ -48,16 +48,12 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   /* Gradient */
-  --gradient-primary: linear-gradient(
-    90deg,
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
-  --gradient-button: linear-gradient(
-    180deg,
-    var(--color-primary) 0%,
-    var(--color-primary-dark) 100%
-  );
+  --gradient-primary: linear-gradient(45deg,
+      oklch(59.23% 0.213 264.65),
+      oklch(78.09% 0.118 225.76));
+  --gradient-button: linear-gradient(180deg,
+      oklch(78.09% 0.118 225.76) 0%,
+      oklch(59.23% 0.213 264.65) 100%);
 }
 
 :root {
@@ -69,7 +65,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(78.09% 0.118 225.76);
-  --primary-dark:oklch(59.23% 0.213 264.65);
+  --primary-dark: oklch(59.23% 0.213 264.65);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -105,7 +101,7 @@
   --popover-foreground: oklch(0.985 0 0);
   /* --primary: oklch(0.922 0 0); */
   --primary: oklch(78.09% 0.118 225.76);
-  --primary-dark:oklch(59.23% 0.213 264.65);
+  --primary-dark: oklch(59.23% 0.213 264.65);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -155,8 +151,16 @@
     @apply bg-linear-to-b from-[#55C7F1] to-[#3C71FA] text-[#FEFBFC] rounded-md px-6 py-2 font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#3C71FA]/30 dark:hover:shadow-[#011627]/30 hover:from-[#39BDEE] hover:to-[#1D58F0] active:translate-y-0 active:shadow-md focus:outline-none focus:ring-2 focus:ring-[#55C7F1]/50 cursor-pointer
   }
 
-  .btn-outline {
-    @apply rounded-md px-6 py-2 hover:bg-[#011627]/5 dark:hover:bg-[#FEFBFC]/5 font-medium text-[#011627] dark:text-[#FEFBFC] bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 outline-1 outline-[#011627]/20 hover:outline-[#011627]/90 dark:outline-[#FEFBFC]/30 dark:hover:outline-[#FEFBFC]/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55C7F1]/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-[#011627]/30 dark:hover:shadow-[#011627]/30
+  .gradient-primary {
+    background: var(--gradient-primary);
   }
+
+  .gradient-button {
+    background: var(--gradient-button);
+  }
+
+  /* .btn-outline {
+    @apply 
+  } */
 
 }
