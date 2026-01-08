@@ -31,22 +31,22 @@ export default function Home() {
             </div>
           </div>
           {/* hero image */}
-          <div className="flex">
+          <div className="flex  lg:contents">
             <Image
               width={1000}
               height={1000}
               src={assets.heroImage}
               alt="hero"
-              className="lg:absolute top-0  dark:hidden"
-              loading="eager"
+              className="w-full relative dark:hidden lg:absolute lg:right-0 lg:top-0 lg:w-[60%] lg:object-fill"
+              priority
             />
             <Image
               width={1000}
               height={1000}
               src={assets.heroImageDark}
               alt="hero"
-              className="absolute top-0 hidden lg:block dark:block"
-              loading="eager"
+              className="w-full relative hidden dark:block lg:absolute lg:right-0 lg:top-0 lg:w-[60%] lg:object-contain"
+              priority
             />
           </div>
         </div>
