@@ -1,7 +1,7 @@
 import lightLogo from "../public/Logo-Light.svg";
 import darkLogo from "../public/Logo-Dark.svg";
-import heroImage from "../public/Hero-image.svg";
-import heroImageDark from "../public/Hero image dark.svg";
+import heroImage from "../public/Hero image light.svg";
+import heroImageDark from "../public/Hero image dark new.svg";
 import sparkle from "../public/sparkle.svg";
 import quotes from "../public/quotes.svg";
 import gradientSparkle from "../public/gradient-sparkle.svg";
@@ -40,7 +40,7 @@ export const assets ={
 }
 
 export const navItems = [
-    { name: "Home", link: "#" },
+    { name: "Home", link: "#Hero" },
     { name: "Features", link: "#Features" },
     { name: "Process", link: "#Process" },
     { name: "Reviews", link: "#Reviews" },

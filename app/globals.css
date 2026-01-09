@@ -140,7 +140,7 @@
 
 @layer components {
   .nav-items {
-    @apply mx-4 lg:mx-6 text-sm lg:text-base text-text-dark dark:text-white border-primary hidden sm:inline-block shrink-0 transition-all duration-200;
+    @apply mx-4 lg:mx-6 text-sm lg:text-base text-text-dark dark:text-white border-primary hidden shrink-0 sm:inline-block transition-all duration-200;
   }
 
   .nav-items:hover {
@@ -148,7 +148,19 @@
   }
 
   .btn-primary {
-    @apply bg-linear-to-b from-[#55C7F1] to-[#3C71FA] text-[#FEFBFC] rounded-md px-6 py-2 font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#3C71FA]/30 dark:hover:shadow-[#011627]/30 hover:from-[#39BDEE] hover:to-[#1D58F0] active:translate-y-0 active:shadow-md focus:outline-none focus:ring-2 focus:ring-[#55C7F1]/50 cursor-pointer
+    @apply bg-linear-to-b from-[#55C7F1] to-[#3C71FA] text-[#FEFBFC] rounded-md font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#3C71FA]/30 dark:hover:shadow-[#011627]/30 hover:from-[#39BDEE] hover:to-[#1D58F0] active:translate-y-0 active:shadow-md focus:outline-none focus:ring-2 focus:ring-[#55C7F1]/50 cursor-pointer
+  }
+
+  .btn-outline {
+    @apply rounded-md dark:hover:bg-[#FEFBFC]/5 font-medium text-[#011627] dark:text-[#FEFBFC] bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 border border-[#011627]/20 hover:border-[#011627]/90 dark:border-[#FEFBFC]/30 dark:hover:border-[#FEFBFC]/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55C7F1]/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-[#011627]/30 dark:hover:shadow-[#011627]/30
+  }
+
+  .responsive-btn {
+    @apply md:h-10 md:px-4 md:text-sm md:py-2 md:has-[>svg]:px-3 h-9 text-xs gap-1.5 px-4 has-[>svg]:px-2.5 lg:h-12 lg:text-base lg:px-6 lg:has-[>svg]:px-4 xl:h-12 xl:px-8 xl:has-[>svg]:px-6
+  }
+
+  .responsive-icon {
+    @apply size-8 md:size-9 lg:size-10
   }
 
   .gradient-primary {
@@ -159,8 +171,48 @@
     background: var(--gradient-button);
   }
 
-  /* .btn-outline {
-    @apply 
-  } */
+  .section-offset {
+    scroll-margin-top: 90px;
+    /* match navbar height */
+  }
 
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#080D1A] dark:text-white;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  }
+
+  h2>span {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply text-sm md:text-lg lg:text-xl font-normal;
+  }
+
+  p {
+    @apply text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed;
+  }
+
+  label {
+    @apply text-sm sm:text-base mt-3 mb-1 leading-relaxed font-normal;
+  }
+
+  input {
+    @apply p-2 text-sm md:text-base border rounded-lg pl-8 w-full;
+  }
+
+  textarea {
+    @apply p-2 text-sm md:text-base border rounded-lg;
+  }
+
+  * {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+  }
 }

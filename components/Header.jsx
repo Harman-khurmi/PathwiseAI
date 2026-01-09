@@ -14,18 +14,24 @@ import { Button } from "./ui/button";
 const Header = () => {
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full">
-        <header className="flex justify-between items-center p-5 px-16 dark:bg-neutral-900/15 backdrop-blur-lg">
+      <nav className="fixed top-0 z-50 w-full h-fit">
+        <header className="flex items-center sticky justify-between z-20 top-0 w-full backdrop-blur py-4 md:py-5 px-6 md:px-12 lg:px-24 dark:bg-neutral-900/15">
           {/* logo */}
           <Image
             src={assets.darkLogo}
+            href="#"
             alt="logo"
-            className="w-30 lg:w-36 block dark:hidden"
+            width={100}
+            height={100}
+            className="min-w-30 md:min-w-34 lg:min-w-36 block dark:hidden"
           />
           <Image
             src={assets.lightLogo}
+            href="#"
             alt="logo"
-            className="w-30 lg:w-36 hidden dark:block"
+            width={100}
+            height={100}
+            className="min-w-30 md:min-w-34 lg:min-w-36 hidden dark:block"
           />
 
           {/* nav items */}
@@ -39,24 +45,23 @@ const Header = () => {
             })}
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3 md:gap-5">
             {/* theme toggle */}
             <ThemeToggle />
             {/* auth buttons */}
             <SignedOut>
-              <SignInButton>
-                <Button size="lg" variant="outline">
-                  Sign In
-                </Button>
-               {/* <Button variant="outline" size="lg">Sign In</Button> */}
-              </SignInButton>
+              <div className="md:flex items-center gap-3 md:gap-5 hidden">
+                <SignInButton>
+                  <Button size="responsive" variant="outline">
+                    Sign In
+                  </Button>
+                </SignInButton>
 
-              {/* sign up button */}
-              <SignUpButton>
-                <Button size="lg" className="btn-primary">
-                  Get Started
-                </Button>
-              </SignUpButton>
+                {/* sign up button */}
+                <SignUpButton>
+                  <Button size="responsive">Get Started</Button>
+                </SignUpButton>
+              </div>
             </SignedOut>
             <SignedIn>
               <UserButton />
