@@ -7,23 +7,26 @@ const Hero = () => {
   return (
     <>
       <section id="Hero" className="section-offset pt-8 md:pt-12 lg:pt-20 z-1 ">
-        <div className="px-6 lg:px-20 py-16 grid grid-cols-1 md:grid-cols-2 relative overflow-x-clip">
+        <div className="px-6 lg:px-20 py-16 grid grid-cols-1 md:grid-cols-2 relative">
           {/* hero text content */}
           <div className="flex flex-col gap-8 items-center justify-center md:items-start md:justify-start w-full">
             {/* heading */}
             <div className="flex flex-col text-center md:text-left w-full">
-              <h1 className="md:min-w-100 lg:w-full">
+              <h1 className="md:min-w-100 lg:w-full relative">
                 {/* <div className="flex  items-center justify-center lg:justify-start gap-2 bg-amber-300"> */}
+                <span className="pr-1 whitespace-nowrap">
                 Wise Guidance
-                <span className="inline-block pl-1 lg:pl-2">
+                </span>
+                {/* <span className="inline-block pl-1 lg:pl-2"> */}
                   <Image
                     src={assets.gradientSparkle}
                     width={60}
                     height={60}
                     alt="sparkle"
-                    className="inline-block w-10 md:w-12 lg:w-16"
+                    className="absolute top-1.5 inline-block w-10 md:w-12 lg:w-16"
                   />
-                </span>{" "}
+                {/* </span> */}
+                {" "}
                 {/* </div> */}
                 <br />
                 for{" "}
@@ -32,7 +35,7 @@ const Hero = () => {
                 </span>{" "}
                 of Your Career Path
               </h1>
-              <p className="w-[90%] md:w-full mx-auto mt-4 text-[#080D1A] dark:text-white">
+              <p className="w-[90%] md:w-[95%]  mx-auto md:ml-0 mt-4 text-[#080D1A] dark:text-white">
                 PathwiseAI is your AI career coach — guiding you through
                 resumes, interviews, skills, and growth with clarity.
               </p>
