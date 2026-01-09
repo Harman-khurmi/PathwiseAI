@@ -11,10 +11,10 @@ const Hero = () => {
           {/* hero text content */}
           <div className="flex flex-col gap-8 items-center justify-center md:items-start md:justify-start w-full">
             {/* heading */}
-            <div className="flex flex-col text-center md:text-left w-full">
+            <div className="flex flex-col mx-auto text-center md:text-left w-full">
               <h1 className="md:min-w-100 lg:w-full relative">
                 {/* <div className="flex  items-center justify-center lg:justify-start gap-2 bg-amber-300"> */}
-                <span className="pr-1 whitespace-nowrap">
+                <span className="pr-1 -ml-6 md:ml-0 whitespace-nowrap">
                 Wise Guidance
                 </span>
                 {/* <span className="inline-block pl-1 lg:pl-2"> */}
@@ -60,11 +60,11 @@ const Hero = () => {
               quality={40}
             />
             <Image
-              width={2000}
-              height={2000}
+              width={1600}
+              height={1600}
               src={assets.heroImageDark}
               alt="hero"
-              className="w-300 hidden dark:block"
+              className="hidden dark:block h-7xl w-7xl absolute -top-40 -right-64 lg:-top-80 lg:-right-80"
               priority
               quality={40}
             />
