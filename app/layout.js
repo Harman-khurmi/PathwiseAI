@@ -1,4 +1,4 @@
-import { Manrope } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 
 import "./globals.css";
 
@@ -12,6 +12,11 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
 export const metadata = {
   title: "PathwiseAI - Wise Career Guidance",
   description: "Lighting the Way with Wise Guidance Along Your Career Path",
@@ -20,27 +25,27 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${manrope.variable} antialiased scroll-smooth`}
-        suppressHydrationWarning
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${manrope.variable} ${inter.variable} antialiased scroll-smooth`}
+          suppressHydrationWarning
         >
-          {/* header component*/}
-          <Header />
-          <div className="min-h-screen overflow-x-clip">{children}</div>
-          {/* footer component*/}
-          <footer className="bg-neutral-900">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {/* header component*/}
+            <Header />
+            <div className="min-h-screen overflow-x-clip">{children}</div>
+            {/* footer component*/}
+            {/* <footer className="bg-neutral-900">
           <div className="text-center p-5 text-neutral-500">© PathwiseAI • Made with 💗 by Harman Khurmi</div>
-          </footer>
-        </ThemeProvider>
-      </body>
-    </html>
+          </footer> */}
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

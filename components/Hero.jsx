@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <>
       <section id="Hero" className="section-offset pt-8 md:pt-12 lg:pt-20 z-1 ">
-        <div className="w-full px-6 md:px-12 lg:px-24 mx-auto py-16 grid grid-cols-1 md:grid-cols-2 relative">
+        <div className="w-full px-6 md:px-12 lg:px-24 mx-auto pt-16 pb-0 md:py-16 grid grid-cols-1 md:grid-cols-2 relative">
           {/* hero text content */}
           <div className="flex flex-col gap-8 items-center justify-center md:items-start md:justify-start w-full">
             {/* heading */}
@@ -20,7 +20,6 @@ const Hero = () => {
                 <span className="pr-1 -ml-6 md:ml-0 whitespace-nowrap">
                   Wise Guidance
                 </span>
-
                 <Image
                   src={assets.gradientSparkle}
                   width={60}

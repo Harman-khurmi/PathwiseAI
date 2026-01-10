@@ -7,6 +7,7 @@ import quotes from "../public/quotes.svg";
 import gradientSparkle from "../public/gradient-sparkle.svg";
 
 import careerGuidance from "../public/career guidance.svg";
+import gradientCircle from "../public/gradientCircle.svg";
 import coverLetter from "../public/cover letter.svg";
 import resumeBuilder from "../public/Resume builder.svg";
 import mockInterview from "../public/mock interview.svg";
@@ -37,6 +38,7 @@ export const assets ={
     sparkle,
     quotes,
     gradientSparkle,
+    gradientCircle
 }
 
 export const navItems = [
