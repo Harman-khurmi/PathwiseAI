@@ -12,10 +12,10 @@ const Title = ({title, gradientText}) => {
                     alt="sparkle"
                     width={20}
                     height={20}
-                    className="mt-1 md:mt-0"
+                    className="mt-2 md:mt-0"
                   ></Image>
                 </span>
-                <h3 className="font-semibold text-2xl md:text-3xl lg:text-4xl text-center w-2/3 md:w-full">
+                <h3 className="font-semibold text-2xl md:text-3xl lg:text-4xl text-center w-full">
                   {title}{" "}
                   <span className="gradient-primary text-transparent bg-clip-text">
                     {gradientText}
@@ -27,7 +27,7 @@ const Title = ({title, gradientText}) => {
                     alt="sparkle"
                     width={20}
                     height={20}
-                    className="mt-1 md:mt-0"
+                    className="mt-2 md:mt-0"
                   ></Image>
                 </span>
               </div>
