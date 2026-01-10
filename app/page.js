@@ -1,5 +1,6 @@
 import Feature from "@/components/Feature";
 import Hero from "@/components/Hero";
+import Process from "@/components/Process";
 import TrustedBy from "@/components/TrustedBy";
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <Hero />
         <TrustedBy />
         <Feature />
+        <Process />
       </main>
     </>
   );

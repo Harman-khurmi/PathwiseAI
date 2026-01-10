@@ -5,6 +5,7 @@ import heroImageDark from "../public/Hero image dark.png";
 import sparkle from "../public/sparkle.svg";
 import quotes from "../public/quotes.svg";
 import gradientSparkle from "../public/gradient-sparkle.svg";
+import cardGradientBg from "../public/cardGradientBg.svg";
 
 import careerGuidance from "../public/career guidance.svg";
 import gradientCircle from "../public/gradientCircle.svg";
@@ -38,7 +39,8 @@ export const assets ={
     sparkle,
     quotes,
     gradientSparkle,
-    gradientCircle
+    gradientCircle,
+    cardGradientBg,
 }
 
 export const navItems = [
