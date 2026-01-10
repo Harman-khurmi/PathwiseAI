@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <>
       <nav className="fixed top-0 z-50 w-full h-fit">
-        <header className="flex items-center sticky justify-between z-20 top-0 w-full backdrop-blur py-4 md:py-5 px-6 md:px-12 lg:px-24 dark:bg-neutral-900/15">
+        <header className="flex items-center sticky justify-between z-20 top-0 w-full backdrop-blur py-4 md:py-5 px-6 md:px-12 lg:px-24 dark:bg-neutral-900/15 bg-white/25">
           {/* logo */}
           <Image
             src={assets.darkLogo}

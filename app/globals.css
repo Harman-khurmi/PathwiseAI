@@ -140,7 +140,7 @@
 
 @layer components {
   .nav-items {
-    @apply mx-4 lg:mx-6 text-sm lg:text-base text-text-dark dark:text-white border-primary hidden shrink-0 sm:inline-block transition-all duration-200;
+    @apply mx-4 lg:mx-6 text-sm lg:text-base text-text-dark dark:text-white border-primary hidden shrink-0 lg:inline-block transition-all duration-200;
   }
 
   .nav-items:hover {
@@ -196,7 +196,7 @@
   }
 
   p {
-    @apply text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed;
+    @apply text-sm md:text-base lg:text-lg leading-relaxed;
   }
 
   label {
