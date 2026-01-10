@@ -10,8 +10,8 @@ const Title = ({title, gradientText}) => {
                   <Image
                     src={assets.sparkle}
                     alt="sparkle"
-                    width={20}
-                    height={20}
+                    width={30}
+                    height={30}
                     className="mt-2 md:mt-0"
                   ></Image>
                 </span>
@@ -25,8 +25,8 @@ const Title = ({title, gradientText}) => {
                   <Image
                     src={assets.sparkle}
                     alt="sparkle"
-                    width={20}
-                    height={20}
+                    width={30}
+                    height={30}
                     className="mt-2 md:mt-0"
                   ></Image>
                 </span>
