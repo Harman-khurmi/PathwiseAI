@@ -3,7 +3,7 @@ import darkLogo from "../public/Logo-Dark.svg";
 import heroImage from "../public/Hero image light.png";
 import heroImageDark from "../public/Hero image dark.png";
 import sparkle from "../public/sparkle.svg";
-import quotes from "../public/quotes.svg";
+import quotes from "../public/quotesPrimary.svg";
 import gradientSparkle from "../public/gradient-sparkle.svg";
 import cardGradientBg from "../public/cardGradientBg.svg";
 
@@ -56,6 +56,12 @@ export const icons = {
 
 export const testimonials =[
     {
+        name:"Khyati Sharma",
+        title:"Product Analyst",
+        image:khyati,
+        review:"PathwiseAI didn't just rewrite my resume - it helped me understand where I was going wrong and how to improve. I landed interviews within two weeks."
+    },
+    {
         name:"Priya S.",
         title:"Marketing Strategist",
         image:priya,
@@ -79,12 +85,6 @@ export const testimonials =[
         image:rahul,
         review:"The resume builder understood my experience level and optimized my profile for senior roles without overdoing it. Clean, precise, and ATS-ready."
     },
-    {
-        name:"Khyati Sharma",
-        title:"Product Analyst",
-        image:khyati,
-        review:"PathwiseAI didn't just rewrite my resume - it helped me understand where I was going wrong and how to improve. I landed interviews within two weeks."
-    }
 ]
 
 export const whyTrustUs =[
