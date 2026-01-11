@@ -19,12 +19,6 @@ import career from "../public/career.svg";
 import careerAsset from "../public/career asset.svg";
 import practiceAndImprove from "../public/practice&improve.svg";
 
-import priya from "../public/22.jpg";
-import daniel from "../public/48.jpg";
-import emily from "../public/63.jpg";
-import rahul from "../public/74.jpg";
-import khyati from "../public/69.jpg";
-
 import github from "../public/github.svg";
 import figma from "../public/figma.svg";
 import linkedin from "../public/linkedin.svg";
@@ -58,33 +52,64 @@ export const testimonials =[
     {
         name:"Khyati Sharma",
         title:"Product Analyst",
-        image:khyati,
+        image:"https://xsgames.co/randomusers/assets/avatars/female/40.jpg",
         review:"PathwiseAI didn't just rewrite my resume - it helped me understand where I was going wrong and how to improve. I landed interviews within two weeks."
     },
     {
         name:"Priya S.",
         title:"Marketing Strategist",
-        image:priya,
-        review:"What sets PathwiseAI apart is the guidance. It doesn’t just generate content — it helps you understand what to improve and why."
+        image:"https://xsgames.co/randomusers/assets/avatars/female/4.jpg",
+        review:"What sets PathwiseAI apart is the guidance. It doesn't just generate content — it helps you understand what to improve and why."
     },
     {
         name:"Daniel M.",
         title:"Backend Developer",
-        image:daniel,
+        image:"https://xsgames.co/randomusers/assets/avatars/male/4.jpg",
         review:"Mock interview practice was the standout feature for me. The feedback on structure and clarity genuinely improved how I frame my answers."
     },
     {
         name:"Emily W.",
         title:"Product Manager",
-        image:emily,
+        image:"https://xsgames.co/randomusers/assets/avatars/female/8.jpg",
         review:"The industry and skill insights helped me validate my transition into product management. The data felt relevant, not generic."
     },
     {
         name:"Rahul K.",
         title:"Senior Software Engineer",
-        image:rahul,
+        image:"https://xsgames.co/randomusers/assets/avatars/male/18.jpg",
         review:"The resume builder understood my experience level and optimized my profile for senior roles without overdoing it. Clean, precise, and ATS-ready."
     },
+    {
+        name: "Neha Patel",
+        title: "Frontend Engineer",
+        image: "https://xsgames.co/randomusers/assets/avatars/female/1.jpg",
+        review: "PathwiseAI helped me structure my experience clearly. My resume finally felt focused, and recruiter responses improved significantly."
+    },
+    {
+        name: "James Lawson",
+        title: "Operations Manager",
+        image: "https://xsgames.co/randomusers/assets/avatars/male/11.jpg",
+        review: "The career guidance was practical and grounded. It helped me identify adjacent roles where my experience actually fits."
+    },
+    {
+        name: "Arjun Verma",
+        title: "Data Engineer",
+        image: "https://xsgames.co/randomusers/assets/avatars/male/10.jpg",
+        review: "Everything felt role-specific, from resume wording to interview practice. Nothing felt generic or over-automated."
+    },
+    {
+        name: "Sophie Reynolds",
+        title: "UX Designer",
+        image: "https://xsgames.co/randomusers/assets/avatars/female/14.jpg",
+        review: "PathwiseAI gave me clarity on what to highlight and what to improve next. It felt like a structured roadmap."
+    },
+    {
+        name: "Kunal Sharma",
+        title: "MBA Graduate",
+        image: "https://xsgames.co/randomusers/assets/avatars/male/16.jpg",
+        review: "The guided approach reduced a lot of uncertainty. Knowing I was following the right path boosted my confidence."
+    }
+    
 ]
 
 export const whyTrustUs =[
