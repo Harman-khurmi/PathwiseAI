@@ -12,6 +12,7 @@ const Process = () => {
           {/* gradient circle */}
           <Image
             src={assets.gradientCircle}
+            draggable={false}
             alt="gradientCircle"
             width={800}
             height={800}

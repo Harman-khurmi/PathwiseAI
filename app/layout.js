@@ -40,9 +40,7 @@ export default function RootLayout({ children }) {
             <Header />
             <div className="min-h-screen overflow-x-clip">{children}</div>
             {/* footer component*/}
-            {/* <footer className="bg-neutral-900">
-          <div className="text-center p-5 text-neutral-500">© PathwiseAI • Made with 💗 by Harman Khurmi</div>
-          </footer> */}
+            
           </ThemeProvider>
         </body>
       </html>

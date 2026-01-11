@@ -6,14 +6,14 @@ import { assets } from "@/app/assets";
 const Hero = () => {
   return (
     <>
-      <section id="Hero" className="section-offset pt-8 md:pt-12 lg:pt-20 z-1 ">
+      <section id="Home" className="section-offset pt-8 md:pt-12 lg:pt-20 z-1 ">
         <div className="w-full px-6 md:px-12 lg:px-24 mx-auto pt-16 pb-0 md:py-16 grid grid-cols-1 md:grid-cols-2 relative">
           {/* hero text content */}
           <div className="flex flex-col gap-8 items-center justify-center md:items-start md:justify-start w-full">
             {/* heading */}
             <div className="flex flex-col mx-auto text-center md:text-left w-full">
               <div className="bg-[#3C71FA]/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-[#3C71FA]/25 w-fit mb-3 md:mb-4">
-                <p className="text-xs">Your Personal AI Career Coach</p>
+                <p className="text-xs lg:text-base lg:px-2">Your Personal AI Career Coach</p>
               </div>
               <h1 className="md:min-w-100 lg:w-full relative">
                 {/* <div className="flex  items-center justify-center lg:justify-start gap-2 bg-amber-300"> */}

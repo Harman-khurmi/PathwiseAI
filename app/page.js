@@ -5,6 +5,7 @@ import Process from "@/components/Process";
 import Reviews from "@/components/Reviews";
 import TrustedBy from "@/components/TrustedBy";
 import FAQs from "@/components/FAQs";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function Home() {
         <Reviews />
         <CtaSection />
         <FAQs />
+        <Footer/>
       </main>
     </>
   );

@@ -206,11 +206,11 @@
   }
 
   input {
-    @apply p-2 text-sm md:text-base border rounded-lg pl-8 w-full;
+    @apply p-2 text-sm md:text-base border rounded-md pl-8 w-full;
   }
 
   textarea {
-    @apply p-2 text-sm md:text-base border rounded-lg;
+    @apply p-2 text-sm md:text-base border rounded-md;
   }
 
 

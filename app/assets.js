@@ -23,6 +23,10 @@ import github from "../public/github.svg";
 import figma from "../public/figma.svg";
 import linkedin from "../public/linkedin.svg";
 import behance from "../public/behance.svg";
+import githubDark from "../public/github-dark.svg";
+import figmaDark from "../public/figma-dark.svg";
+import linkedinDark from "../public/linkedin-dark.svg";
+import behanceDark from "../public/behance-dark.svg";
 
 
 export const assets ={
@@ -38,7 +42,7 @@ export const assets ={
 }
 
 export const navItems = [
-    { name: "Home", link: "#Hero" },
+    { name: "Home", link: "#Home" },
     { name: "Features", link: "#Features" },
     { name: "Process", link: "#Process" },
     { name: "Reviews", link: "#Reviews" },
@@ -217,25 +221,26 @@ export const socialMedia = [
     {
         name: "Github",
         icon: github,
-        iconDark: github,
+        iconDark: githubDark,
         link: "https://github.com/Harman-khurmi"
     },
     {
         name: "Figma",
         icon: figma,
-        iconDark: figma,
+        iconDark: figmaDark,
         link: "https://www.figma.com/@harmankhurmi"
     },
     {
         name: "LinkedIn",
         icon: linkedin,
-        iconDark: linkedin,
+        iconDark: linkedinDark,
         link: "https://www.linkedin.com/in/harmankhurmi/"
     },
     {
         name: "Behance",
         icon: behance,
-        iconDark: behance,
+        iconDark: behanceDark,
         link: "https://www.behance.net/harmankhurmi"
     },
 ]
+
