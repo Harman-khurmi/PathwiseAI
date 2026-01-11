@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 const CtaSection = () => {
   return (
-    <section id="Cta">
+    <section>
       <div className="z-1 px-6 md:px-12 lg:px-24 mt-0 mb-12 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center bg-[#55C7F1]/8 border-y-3 border-[#55C7F1]/10 backdrop-blur-md gap-8 relative">
         {/* gradient circle */}
         <Image
