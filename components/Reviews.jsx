@@ -21,8 +21,8 @@ const Reviews = () => {
   return (
     <>
       <section
-        id="#Reviews"
-        className="container mx-auto px-6 md:px-12 lg:px-24 my-10 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center z-10 relative"
+        id="Reviews"
+        className="section-offset container mx-auto px-6 md:px-12 lg:px-24 my-10 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center z-10 relative"
       >
         <Title title="Real professionals." gradientText="Real outcomes" />
         <Carousel

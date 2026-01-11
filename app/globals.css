@@ -131,6 +131,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     /* font-family: "Manrope", sans-serif; */
     /* font-optical-sizing: auto; */
