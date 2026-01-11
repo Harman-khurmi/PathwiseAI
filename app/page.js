@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import Reviews from "@/components/Reviews";
 import TrustedBy from "@/components/TrustedBy";
+import FAQs from "@/components/FAQs";
 export default function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function Home() {
         <Process />
         <Reviews />
         <CtaSection />
+        <FAQs />
       </main>
     </>
   );

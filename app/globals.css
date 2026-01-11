@@ -135,12 +135,6 @@
     scroll-behavior: smooth;
   }
 
-  * {
-    /* font-family: "Manrope", sans-serif; */
-    /* font-optical-sizing: auto; */
-    /* @apply border-border outline-ring/50; */
-  }
-
   body {
     @apply bg-background text-foreground font-sans;
   }

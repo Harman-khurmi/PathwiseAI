@@ -186,7 +186,7 @@ export const howItWorks = [
     }
 ]
 
-export const FAQs = [
+export const FAQdata = [
     {
         question:"Is PathwiseAI suitable for freshers and experienced professionals?",
         answer:"Yes. PathwiseAI adapts its guidance based on your experience level, career stage, and goals. Whether you’re entering the job market or advancing into senior roles, the platform tailors resumes, interview prep, and insights to match industry expectations at your level."
