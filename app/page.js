@@ -1,3 +1,4 @@
+import CtaSection from "@/components/CtaSection";
 import Feature from "@/components/Feature";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
@@ -12,6 +13,7 @@ export default function Home() {
         <Feature />
         <Process />
         <Reviews />
+        <CtaSection />
       </main>
     </>
   );

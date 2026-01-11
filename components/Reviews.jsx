@@ -25,19 +25,6 @@ const Reviews = () => {
         className="container mx-auto px-6 md:px-12 lg:px-24 my-10 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center z-10 relative"
       >
         <Title title="Real professionals." gradientText="Real outcomes" />
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-9 py-16">
-            {testimonials.map((testimonial, index) => {
-                return (
-                <ReviewsCard
-                    key={index}
-                    name={testimonial.name}
-                    title={testimonial.title}
-                    image={testimonial.image}
-                    review={testimonial.review}
-                />
-                );
-            })}
-            </div> */}
         <Carousel
           opts={{ loop: true }}
           plugins={[plugin.current]}
