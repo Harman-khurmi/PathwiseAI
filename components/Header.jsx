@@ -13,7 +13,8 @@ import { assets, navItems } from "../app/assets";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, easeInOut } from "motion/react";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,41 +60,70 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setIsMenuOpen(false); // Close mobile menu if open
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.pushState(
+      {},
+      document.title,
+      window.location.pathname + window.location.search
+    );
+  };
+
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full h-fit">
-        <header
+      <motion.header
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: easeInOut }}
+        className="fixed top-0 z-50 w-full h-16"
+      >
+        <div
           ref={headerRef}
           className="flex items-center sticky justify-between z-20 top-0 w-full backdrop-blur py-4 md:py-5 px-6 md:px-12 lg:px-24 dark:bg-neutral-900/15 bg-white/25"
         >
           {/* logo */}
-          <Image
-            src={assets.darkLogo}
-            href="#"
-            alt="logo"
-            width={100}
-            height={100}
-            className="min-w-30 md:min-w-34 lg:min-w-36 block dark:hidden"
-          />
-          <Image
-            src={assets.lightLogo}
-            href="#"
-            alt="logo"
-            width={100}
-            height={100}
-            className="min-w-30 md:min-w-34 lg:min-w-36 hidden dark:block"
-          />
-
-          {/* nav items - Desktop only */}
-          <div className="hidden lg:block">
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="block dark:hidden"
+          >
+            <Image
+              src={assets.darkLogo}
+              alt="logo"
+              width={100}
+              height={100}
+              className="h-10 w-auto md:h-12 lg:h-13 "
+            />
+          </Link>
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="hidden dark:block"
+          >
+            <Image
+              src={assets.lightLogo}
+              alt="logo"
+              width={100}
+              height={100}
+              className="h-10 w-auto md:h-12 lg:h-13 "
+            />
+          </Link>
+          <nav className="hidden lg:block">
             {navItems.map((item, index) => {
               return (
-                <a key={index} href={item.link} className="nav-items">
+                <a
+                  key={index}
+                  href={item.link}
+                  onClick={item.name === "Home" ? handleLogoClick : undefined}
+                  className="nav-items"
+                >
                   {item.name}
                 </a>
               );
             })}
-          </div>
+          </nav>
 
           <div className="flex items-center gap-3 md:gap-5">
             {/* theme toggle */}
@@ -155,15 +185,16 @@ const Header = () => {
               </Button>
             </div>
           </div>
-        </header>
+        </div>
 
         {/* Mobile Navbar Component */}
         <MobileNavbar
           ref={mobileNavRef}
           isOpen={isMenuOpen}
           navbarHeight={navbarHeight}
+          onHomeClick={handleLogoClick}
         />
-      </nav>
+      </motion.header>
     </>
   );
 };

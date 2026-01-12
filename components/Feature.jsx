@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Title from "./Title";
 import FeatureCard from "./FeatureCard";
 import { features } from "@/app/assets";
+import { motion } from "framer-motion";
 
 const Feature = () => {
   return (
@@ -12,7 +14,7 @@ const Feature = () => {
       >
         <Title title="Everything you need to move" gradientText="forward" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 items-stretch justify-center content-center px-6 md:px-12 lg:px-24 my-10 md:my-12 lg:my-16">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 items-stretch justify-center content-center px-6 md:px-12 lg:px-24 my-10 md:my-12 lg:my-16">
           {features.map((feature, index) => {
             return (
               <FeatureCard
@@ -20,10 +22,11 @@ const Feature = () => {
                 title={feature.title}
                 description={feature.description}
                 image={feature.image}
+                index={index}
               />
             );
           })}
-        </div>
+        </motion.div>
       </section>
     </>
   );

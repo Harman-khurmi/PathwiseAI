@@ -9,16 +9,30 @@ import { Button } from "./ui/button";
 const Footer = () => {
   return (
     <footer className="">
-      <div className="z-1 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center bg-[#55C7F1]/8 border-y-3 border-[#55C7F1]/10 backdrop-blur-md relative text-center gap-3 md:justify-around mx-auto px-6 mt-6 md:mt-8 lg:mt-12">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="z-1 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center bg-[#55C7F1]/8 border-y-3 border-[#55C7F1]/10 backdrop-blur-md relative text-center gap-3 md:justify-around mx-auto px-6 mt-6 md:mt-8 lg:mt-12"
+      >
         {/* gradient circle */}
-        <Image
-          src={assets.gradientCircle}
-          draggable={false}
-          alt="gradientCircle"
-          width={800}
-          height={800}
+        <motion.span
           className="absolute top-0 -z-10"
-        />
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <Image
+            src={assets.gradientCircle}
+            draggable={false}
+            alt="gradientCircle"
+            width={800}
+            height={800}
+            className=""
+          />
+        </motion.span>
 
         <>
           <div className="px-6 md:px-12 lg:px-24">
@@ -136,7 +150,7 @@ const Footer = () => {
             </motion.div>
           </div>
         </>
-      </div>
+      </motion.div>
     </footer>
   );
 };

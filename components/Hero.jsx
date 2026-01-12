@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { assets } from "@/app/assets";
+import { motion, easeInOut } from "motion/react";
 
 const Hero = () => {
   return (
@@ -10,12 +12,40 @@ const Hero = () => {
         <div className="w-full px-6 md:px-12 lg:px-24 mx-auto pt-16 pb-0 md:py-16 grid grid-cols-1 md:grid-cols-2 relative">
           {/* hero text content */}
           <div className="flex flex-col gap-8 items-center justify-center md:items-start md:justify-start w-full">
-            {/* heading */}
+            {/* title and heading */}
             <div className="flex flex-col mx-auto text-center md:text-left w-full">
-              <div className="bg-[#3C71FA]/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-[#3C71FA]/25 w-fit mb-3 md:mb-4">
-                <p className="text-xs lg:text-base lg:px-2">Your Personal AI Career Coach</p>
-              </div>
-              <h1 className="md:min-w-100 lg:w-full relative">
+              {/* title */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.5,
+                  ease: easeInOut,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                viewport={{ once: true }}
+                className="bg-[#3C71FA]/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-[#3C71FA]/25 w-fit mb-3 md:mb-4"
+              >
+                <p className="text-xs lg:text-base lg:px-2">
+                  Your Personal AI Career Coach
+                </p>
+              </motion.div>
+              {/* heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6,
+                  ease: easeInOut,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                viewport={{ once: true }}
+                className="md:min-w-100 lg:w-full relative"
+              >
                 {/* <div className="flex  items-center justify-center lg:justify-start gap-2 bg-amber-300"> */}
                 <span className="pr-1 -ml-6 md:ml-0 whitespace-nowrap">
                   Wise Guidance
@@ -33,22 +63,55 @@ const Hero = () => {
                   Every Step
                 </span>{" "}
                 of Your Career Path
-              </h1>
-              <p className="w-[90%] md:w-[95%] lg:w-[85%]  mx-auto md:ml-0 mt-4 text-[#080D1A] dark:text-white">
+              </motion.h1>
+              {/* subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.7,
+                  ease: easeInOut,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                viewport={{ once: true }}
+                className="w-[90%] md:w-[95%] lg:w-[85%]  mx-auto md:ml-0 mt-4 text-[#080D1A] dark:text-white"
+              >
                 PathwiseAI is your AI career coach — guiding you through
                 resumes, interviews, skills, and growth with clarity.
-              </p>
+              </motion.p>
             </div>
-            <div className="flex gap-4 lg:mt-4 z-10">
+            {/* buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.8,
+                ease: easeInOut,
+                type: "spring",
+                stiffness: 100,
+                staggerChildren: 0.6,
+              }}
+              viewport={{ once: true }}
+              className="flex gap-4 lg:mt-4 z-10"
+            >
               <Button size="responsive">Get Started</Button>
               <Button variant="outline" size="responsive">
                 How it works
               </Button>
-            </div>
+            </motion.div>
           </div>
           {/* hero image */}
           {/* md: */}
-          <div className="hidden md:flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="hidden md:flex items-center justify-center"
+          >
             <Image
               width={1600}
               height={1600}
@@ -67,9 +130,15 @@ const Hero = () => {
               priority
               quality={40}
             />
-          </div>
+          </motion.div>
           {/* sm: */}
-          <div className="md:hidden flex items-start justify-center w-full">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+            viewport={{ once: true }}
+            className="md:hidden flex items-start justify-center w-full"
+          >
             <Image
               width={600}
               height={600}
@@ -88,7 +157,7 @@ const Hero = () => {
               priority
               quality={40}
             />
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

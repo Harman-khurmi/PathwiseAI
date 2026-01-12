@@ -1,10 +1,17 @@
 import { assets } from "@/app/assets";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ReviewsCard = ({ name, title, image, review }) => {
   return (
-    <div className="flex flex-col items-start justify-between h-full rounded-md border-3 border-[#55C7F1]/10 bg-[#55C7F1]/8 p-4 md:p-5 lg:p-6 gap-6 w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
+      viewport={{ once: false }}
+      className="flex flex-col items-start justify-between h-full rounded-md border-3 border-[#55C7F1]/10 bg-[#55C7F1]/8 p-4 md:p-5 lg:p-6 gap-6 w-full"
+    >
       <div className="flex flex-col gap-3">
         <span className="flex items-center w-fit justify-center shadow-inner shadow-[#55C7F1]/60 rounded-sm p-1">
           <Image
@@ -41,7 +48,7 @@ const ReviewsCard = ({ name, title, image, review }) => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
