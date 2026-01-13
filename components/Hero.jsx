@@ -13,7 +13,22 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
-import { FileChartColumn, Icon, LayoutDashboard, Sparkles } from "lucide-react";
+import {
+  ChevronDown,
+  FileUser,
+  GraduationCap,
+  LayoutDashboard,
+  Newspaper,
+  Sparkles,
+} from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Hero = () => {
   return (
@@ -99,7 +114,7 @@ const Hero = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                  delay: 0.8,
+                  delay: 0.7,
                   ease: easeInOut,
                   type: "spring",
                   stiffness: 100,
@@ -125,7 +140,7 @@ const Hero = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                  delay: 0.8,
+                  delay: 0.7,
                   ease: easeInOut,
                   type: "spring",
                   stiffness: 100,
@@ -134,16 +149,52 @@ const Hero = () => {
                 viewport={{ once: true }}
                 className="flex gap-4 lg:mt-4 z-10"
               >
+                <DropdownMenu modal={false}>
+                  <DropdownMenuTrigger asChild>
+                    <Button size="responsive">
+                      <Sparkles />
+                      Growth Tools
+                      <ChevronDown />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>
+                      <Link
+                        href={"/resume"}
+                        className="flex gap-2 lg:gap-3 items-center"
+                      >
+                        <FileUser />
+                        Resume Builder
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link
+                        href={"/cover-letter"}
+                        className="flex gap-2 lg:gap-3 items-center"
+                      >
+                        <Newspaper />
+                        Cover Letter
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link
+                        href={"/interview-prep"}
+                        className="flex gap-2 lg:gap-3 items-center"
+                      >
+                        <GraduationCap />
+                        Interview Prep
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <Link href={"/dashboard"}>
-                  <Button size="responsive" className={"flex gap-2"}>
+                  <Button
+                    size="responsive"
+                    variant="outline"
+                    className={"flex gap-2"}
+                  >
                     <LayoutDashboard />
                     Industry Insights
-                  </Button>
-                </Link>
-                <Link href={"/tools"}>
-                  <Button variant="outline" size="responsive">
-                    <Sparkles />
-                    Growth Tools
                   </Button>
                 </Link>
               </motion.div>

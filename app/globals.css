@@ -133,6 +133,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -163,6 +164,10 @@
 
   .responsive-icon {
     @apply size-8 md:size-9 cursor-pointer
+  }
+
+  .avatar-icon {
+    @apply h-8 w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer rounded-full
   }
 
   .gradient-primary {
