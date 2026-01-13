@@ -5,6 +5,16 @@ import { Button } from "@/components/ui/button";
 import { assets } from "@/app/assets";
 import { motion, easeInOut } from "motion/react";
 
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
+import Link from "next/link";
+import { FileChartColumn, Icon, LayoutDashboard, Sparkles } from "lucide-react";
+
 const Hero = () => {
   return (
     <>
@@ -26,7 +36,7 @@ const Hero = () => {
                   stiffness: 100,
                 }}
                 viewport={{ once: true }}
-                className="bg-[#3C71FA]/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-[#3C71FA]/25 w-fit mb-3 md:mb-4"
+                className="bg-[#3C71FA]/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-[#3C71FA]/25 hover:shadow-primary/55 cursor-default transition-shadow duration-400 ease-in w-fit mb-3 md:mb-4"
               >
                 <p className="text-xs lg:text-base lg:px-2">
                   Your Personal AI Career Coach
@@ -83,25 +93,61 @@ const Hero = () => {
               </motion.p>
             </div>
             {/* buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.8,
-                ease: easeInOut,
-                type: "spring",
-                stiffness: 100,
-                staggerChildren: 0.6,
-              }}
-              viewport={{ once: true }}
-              className="flex gap-4 lg:mt-4 z-10"
-            >
-              <Button size="responsive">Get Started</Button>
-              <Button variant="outline" size="responsive">
-                How it works
-              </Button>
-            </motion.div>
+            <SignedOut>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.8,
+                  ease: easeInOut,
+                  type: "spring",
+                  stiffness: 100,
+                  staggerChildren: 0.6,
+                }}
+                viewport={{ once: true }}
+                className="flex gap-4 lg:mt-4 z-10"
+              >
+                <SignInButton>
+                  <Button size="responsive">Get Started</Button>
+                </SignInButton>
+                <Link href={"#Process"}>
+                  <Button variant="outline" size="responsive">
+                    How it works
+                  </Button>
+                </Link>
+              </motion.div>
+            </SignedOut>
+            {/* signed in */}
+            <SignedIn>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.8,
+                  ease: easeInOut,
+                  type: "spring",
+                  stiffness: 100,
+                  staggerChildren: 0.6,
+                }}
+                viewport={{ once: true }}
+                className="flex gap-4 lg:mt-4 z-10"
+              >
+                <Link href={"/dashboard"}>
+                  <Button size="responsive" className={"flex gap-2"}>
+                    <LayoutDashboard />
+                    Industry Insights
+                  </Button>
+                </Link>
+                <Link href={"/tools"}>
+                  <Button variant="outline" size="responsive">
+                    <Sparkles />
+                    Growth Tools
+                  </Button>
+                </Link>
+              </motion.div>
+            </SignedIn>
           </div>
           {/* hero image */}
           {/* md: */}

@@ -142,7 +142,7 @@
 
 @layer components {
   .nav-items {
-    @apply mx-4 lg:mx-6 text-sm lg:text-base text-text-dark dark:text-white border-primary hidden shrink-0 lg:inline-block transition-all duration-200;
+    @apply mx-4 lg:mx-6 text-sm lg:text-[15px] text-text-dark dark:text-white border-primary hidden shrink-0 lg:inline-block transition-all duration-200;
   }
 
   .nav-items:hover {
@@ -154,15 +154,15 @@
   }
 
   .btn-outline {
-    @apply rounded-md dark:hover:bg-[#FEFBFC]/5 font-medium text-[#011627] dark:text-[#FEFBFC] bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 border border-[#011627]/20 hover:border-[#011627]/90 dark:border-[#FEFBFC]/30 dark:hover:border-[#FEFBFC]/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55C7F1]/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-[#011627]/30 dark:hover:shadow-[#011627]/30
+    @apply rounded-md cursor-pointer dark:hover:bg-[#FEFBFC]/5 font-medium text-[#011627] dark:text-[#FEFBFC] bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 border border-[#011627]/20 hover:border-[#011627]/90 dark:border-[#FEFBFC]/30 dark:hover:border-[#FEFBFC]/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55C7F1]/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-[#011627]/30 dark:hover:shadow-[#011627]/30
   }
 
   .responsive-btn {
-    @apply md:h-10 md:px-4 md:text-sm md:py-2 md:has-[>svg]:px-3 h-9 text-xs gap-1.5 px-4 has-[>svg]:px-2.5 lg:h-12 lg:text-base lg:px-6 lg:has-[>svg]:px-4 xl:h-12 xl:px-8 xl:has-[>svg]:px-6
+    @apply md:h-10 md:px-4 cursor-pointer md:text-sm md:py-2 md:has-[>svg]:px-3 h-9 text-xs gap-1.5 px-4 has-[>svg]:px-2.5 lg:h-12 lg:text-base lg:px-6 lg:has-[>svg]:px-4 xl:h-12 xl:px-8 xl:has-[>svg]:px-6
   }
 
   .responsive-icon {
-    @apply size-8 md:size-9 lg:size-10
+    @apply size-8 md:size-9 cursor-pointer
   }
 
   .gradient-primary {

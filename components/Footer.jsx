@@ -119,7 +119,7 @@ const Footer = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="flex flex-col "
             >
-              <hr className="border-t-primary/40 my-4 md:my-6" />
+              <hr className="border-t-primary/20 my-4 md:my-6" />
               <div className="flex flex-col gap-3 md:gap-0 items-center md:flex-row md:justify-between">
                 <div className="text-text-dark/60 dark:text-text-light/60 text-sm">
                   © 2026 PathwiseAI. All rights reserved.

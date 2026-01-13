@@ -94,7 +94,7 @@ const Header = () => {
               alt="logo"
               width={100}
               height={100}
-              className="h-10 w-auto md:h-12 lg:h-13 "
+              className="h-10 w-auto md:h-12 lg:h-12 "
             />
           </Link>
           <Link
@@ -107,7 +107,7 @@ const Header = () => {
               alt="logo"
               width={100}
               height={100}
-              className="h-10 w-auto md:h-12 lg:h-13 "
+              className="h-10 w-auto md:h-12 lg:h-12 "
             />
           </Link>
           <nav className="hidden lg:block">
@@ -133,14 +133,14 @@ const Header = () => {
             <SignedOut>
               <div className="hidden md:flex items-center gap-3 md:gap-5">
                 <SignInButton>
-                  <Button size="responsive" variant="outline">
+                  <Button  size="responsive" variant="outline" className={"lg:h-11 lg:text-base lg:px-6 lg:has-[>svg]:px-2"} >
                     Sign In
                   </Button>
                 </SignInButton>
 
                 {/* sign up button */}
                 <SignUpButton>
-                  <Button size="responsive">Get Started</Button>
+                  <Button size="responsive" className={"lg:h-11 lg:text-base lg:px-6 lg:has-[>svg]:px-2"}>Get Started</Button>
                 </SignUpButton>
               </div>
             </SignedOut>
