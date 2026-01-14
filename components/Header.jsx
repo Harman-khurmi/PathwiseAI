@@ -64,15 +64,8 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const handleLogoClick = (e) => {
-    e.preventDefault();
+  const handleLogoClick = () => {
     setIsMenuOpen(false); // Close mobile menu if open
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    window.history.pushState(
-      {},
-      document.title,
-      window.location.pathname + window.location.search
-    );
   };
 
   return (
@@ -88,8 +81,8 @@ const Header = () => {
           className="flex items-center sticky justify-between z-20 top-0 w-full backdrop-blur py-4 px-6 md:px-12 lg:px-24 dark:bg-neutral-900/15 bg-white/25"
         >
           {/* logo */}
-          <Link
-            href="/"
+          <a
+            href="#"
             onClick={handleLogoClick}
             className="block dark:hidden"
           >
@@ -100,9 +93,9 @@ const Header = () => {
               height={100}
               className="h-10 w-auto md:h-12 lg:h-12 "
             />
-          </Link>
-          <Link
-            href="/"
+          </a>
+          <a
+            href="#"
             onClick={handleLogoClick}
             className="hidden dark:block"
           >
@@ -113,17 +106,12 @@ const Header = () => {
               height={100}
               className="h-10 w-auto md:h-12 lg:h-12 "
             />
-          </Link>
+          </a>
           {!isAuthPage && (
             <nav className="hidden lg:block">
               {navItems.map((item, index) => {
                 return (
-                  <a
-                    key={index}
-                    href={item.link}
-                    onClick={item.name === "Home" ? handleLogoClick : undefined}
-                    className="nav-items"
-                  >
+                  <a key={index} href={item.link} className="nav-items">
                     {item.name}
                   </a>
                 );
@@ -224,7 +212,6 @@ const Header = () => {
             ref={mobileNavRef}
             isOpen={isMenuOpen}
             navbarHeight={navbarHeight}
-            onHomeClick={handleLogoClick}
           />
         )}
       </motion.header>
