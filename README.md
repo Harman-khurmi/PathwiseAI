@@ -10,3 +10,7 @@
 10. Added ClerkSignInButton and ClerkSignUpButton in Header.jsx
 11. Generated all landing page content
 12. Create Hero image
+13. Added logo navigation
+14. Created postgresql database using NeonDB
+15. Added database connection in .env
+16. to add weekly updated industy insights - inngest
