@@ -54,7 +54,7 @@ const MobileNavbar = forwardRef(
         </div>
       </motion.div>
     );
-  }
+  },
 );
 
 MobileNavbar.displayName = "MobileNavbar";
