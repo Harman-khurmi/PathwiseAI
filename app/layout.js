@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Toaster } from "@/components/ui/sonner";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
     >
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${manrope.variable} ${inter.variable} antialiased scroll-smooth`}
+          className={`${manrope.variable} ${inter.variable} antialiased`}
           suppressHydrationWarning
         >
           <ThemeProvider
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
           >
             {/* header component*/}
             <Header />
+            <ScrollToTop />
             <Toaster richColors position="top-center" />
             <div className="min-h-screen overflow-x-clip">{children}</div>
             {/* footer component*/}

@@ -31,3 +31,8 @@
 31. to handle dates inside projects we use - npm i date-fns
 32. Completed the industry insights dashboard with recharts and adding skills and insights
 33. Now to update the insigts every week we need to configure inngest functions
+34. complete interview section with quiz taking , quiz result , and quiz dashboard( interview dashboard)
+35. enhanced UI with AI for /onboarding , /dashboard , /interview
+36. working on /resume , TO BE DONE : add AI rewrite for summary input
+37. using - npm i @uiw/react-md-editor to edit markdown file and npm i html2pdf to convert into pdf for resume builder
+38. mistakenly installed pdf2html , remove that from dependencies 
