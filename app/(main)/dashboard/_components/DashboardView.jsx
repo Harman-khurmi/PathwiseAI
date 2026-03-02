@@ -248,9 +248,16 @@ const DashboardView = ({ insights }) => {
             </div>
           </CardHeader>
           <CardContent className="p-8">
-            <div className="h-[400px] w-full min-w-0">
+            <div className="h-[400px] w-full min-w-0 relative">
               {isMounted ? (
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer
+                  id="salary-chart"
+                  width="100%"
+                  height="100%"
+                  minWidth={0}
+                  minHeight={0}
+                  debounce={50}
+                >
                   <BarChart
                     data={salaryData}
                     margin={{ top: 20, right: 0, left: 0, bottom: 5 }}

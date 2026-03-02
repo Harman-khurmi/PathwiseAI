@@ -38,8 +38,15 @@ export default function PerformanceChart({ assessments }) {
         <CardDescription>Your quiz scores over time</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="h-[300px] w-full pt-4">
-          <ResponsiveContainer width="100%" height="100%">
+        <div className="h-[300px] w-full pt-4 relative">
+          <ResponsiveContainer
+            id="performance-chart"
+            width="100%"
+            height="100%"
+            minWidth={0}
+            minHeight={0}
+            debounce={50}
+          >
             <LineChart
               data={chartData}
               margin={{
