@@ -21,12 +21,13 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://pathwise-ai-pro.vercel.app"),
   title: "PathwiseAI - Wise Career Guidance",
   description: "Lighting the Way with Wise Guidance Along Your Career Path",
   openGraph: {
     title: "PathwiseAI - Wise Career Guidance",
     description: "Lighting the Way with Wise Guidance Along Your Career Path",
-    url: "https://pathwise-ai-pro.vercel.app", // Replace with actual deployed URL if different
+    url: "/",
     siteName: "PathwiseAI",
     images: [
       {
