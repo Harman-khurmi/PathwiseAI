@@ -11,7 +11,7 @@
 
 ## 🚀 Project Overview
 
-![PathwiseAI Light Demo](public/Hero%20image%20light.webp)
+![PathwiseAI Light Demo](screenshot/hero.png)
 
 **PathwiseAI** is a comprehensive, AI-powered career management platform designed to guide professionals through every stage of their career journey. From building ATS-optimized resumes and professional cover letters to generating real-time industry insights and conducting mock interviews, PathwiseAI leverages the power of Google Gemini AI to provide personalized, role-specific guidance.
 
@@ -22,7 +22,7 @@ This project was built as a **full-scale personal learning project** to showcase
 ## 🌐 Live Demo
 
 🔗 **Live Website**  
-👉 **[PathwiseAI](https://pathwise-ai.vercel.app/)** *(Add your actual link here)*
+👉 **[PathwiseAI](https://pathwise-ai-pro.vercel.app/)**
 
 ---
 
@@ -89,17 +89,17 @@ All visuals and interactions were designed to feel professional and empowering, 
 ## 📸 Screenshots & Mockups
 
 ### Hero Section
-![Hero Section Light](public/Hero%20image%20light.webp)
-![Hero Section Dark](public/Hero%20image%20dark.webp)
+![Hero Section Light](screenshots/hero-light.png)
+![Hero Section Dark](screenshots/hero.png)
 
-### Dashboard & Insights
+<!-- ### Dashboard & Insights
 ![Dashboard](public/Industry%20&%20skill.svg)
 
 ### Resume Builder
 ![Resume Builder](public/Resume%20builder.svg)
 
 ### Interview Practice
-![Interview Practice](public/mock%20interview.svg)
+![Interview Practice](public/mock%20interview.svg) -->
 
 ---
 
