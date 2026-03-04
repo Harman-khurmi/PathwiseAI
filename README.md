@@ -106,4 +106,4 @@ All visuals and interactions were designed to feel professional and empowering, 
 ## 📬 Contact
 
 **Harman Khurmi**  
-🔗 [GitHub](https://github.com/Harman-khurmi) | [LinkedIn](https://www.linkedin.com/in/harmankhurmi/) | [Portfolio](https://www.behance.net/harmankhurmi)
+🔗 [GitHub](https://github.com/Harman-khurmi) | [LinkedIn](https://www.linkedin.com/in/harmankhurmi/) | [Portfolio](https://harmanpreet.pop.site/)
