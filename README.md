@@ -11,7 +11,7 @@
 
 ## 🚀 Project Overview
 
-![PathwiseAI Light Demo](screenshot/hero.png)
+![PathwiseAI Light Demo](screenshots/hero.png)
 
 **PathwiseAI** is a comprehensive, AI-powered career management platform designed to guide professionals through every stage of their career journey. From building ATS-optimized resumes and professional cover letters to generating real-time industry insights and conducting mock interviews, PathwiseAI leverages the power of Google Gemini AI to provide personalized, role-specific guidance.
 
