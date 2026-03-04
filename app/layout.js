@@ -23,6 +23,28 @@ const inter = Inter({
 export const metadata = {
   title: "PathwiseAI - Wise Career Guidance",
   description: "Lighting the Way with Wise Guidance Along Your Career Path",
+  openGraph: {
+    title: "PathwiseAI - Wise Career Guidance",
+    description: "Lighting the Way with Wise Guidance Along Your Career Path",
+    url: "https://pathwise-ai-pro.vercel.app", // Replace with actual deployed URL if different
+    siteName: "PathwiseAI",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PathwiseAI - Wise Career Guidance",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PathwiseAI - Wise Career Guidance",
+    description: "Lighting the Way with Wise Guidance Along Your Career Path",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
