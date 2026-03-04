@@ -11,6 +11,7 @@ import {
   Loader2,
   Monitor,
   Save,
+  Sparkles,
   Split,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -21,7 +22,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { saveResume } from "@/actions/resume";
+import { saveResume, improveWithAI } from "@/actions/resume";
 import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/nextjs";
 import { entriesToMarkdown } from "@/app/lib/helper";
@@ -47,6 +48,8 @@ export default function ResumeBuilder({ initialContent }) {
     register,
     handleSubmit,
     watch,
+    setValue,
+    getValues,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(resumeSchema),
@@ -83,6 +86,37 @@ export default function ResumeBuilder({ initialContent }) {
       toast.error(saveError.message || "Failed to save resume");
     }
   }, [saveResult, saveError, isSaving]);
+
+  const {
+    loading: isImproving,
+    fn: improveWithAIFn,
+    data: improvedContent,
+    error: improveError,
+  } = useFetch(improveWithAI);
+
+  // Handle improvement result
+  useEffect(() => {
+    if (improvedContent && !isImproving) {
+      setValue("summary", improvedContent);
+      toast.success("Summary improved successfully!");
+    }
+    if (improveError) {
+      toast.error(improveError.message || "Failed to improve summary");
+    }
+  }, [improvedContent, improveError, isImproving, setValue]);
+
+  const handleImproveSummary = async () => {
+    const summary = getValues("summary");
+    if (!summary) {
+      toast.error("Please enter a summary first");
+      return;
+    }
+
+    await improveWithAIFn({
+      current: summary,
+      type: "summary",
+    });
+  };
 
   const getContactMarkdown = useCallback(() => {
     const { contactInfo } = formValues;
@@ -226,16 +260,20 @@ export default function ResumeBuilder({ initialContent }) {
         </div>
       </div>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="space-y-6"
+      >
         <TabsList className="grid grid-cols-2 w-full md:w-[400px] h-12 p-1 bg-muted/50 backdrop-blur-xl border-2 border-muted/20 rounded-2xl shadow-inner">
-          <TabsTrigger 
-            value="edit" 
+          <TabsTrigger
+            value="edit"
             className="rounded-xl font-bold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg active:scale-95"
           >
             Form
           </TabsTrigger>
-          <TabsTrigger 
-            value="preview" 
+          <TabsTrigger
+            value="preview"
             className="rounded-xl font-bold transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg active:scale-95"
           >
             Markdown
@@ -247,7 +285,9 @@ export default function ResumeBuilder({ initialContent }) {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
               {/* Contact Information */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">Contact Information</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">
+                  Contact Information
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl bg-background/50 border-2 shadow-inner">
                   <div className="space-y-2">
                     <label className="text-sm font-bold ml-1">Email</label>
@@ -258,40 +298,54 @@ export default function ResumeBuilder({ initialContent }) {
                       error={errors.contactInfo?.email}
                     />
                     {errors.contactInfo?.email && (
-                      <p className="text-sm text-destructive font-bold">{errors.contactInfo.email.message}</p>
+                      <p className="text-sm text-destructive font-bold">
+                        {errors.contactInfo.email.message}
+                      </p>
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold ml-1">Mobile Number</label>
+                    <label className="text-sm font-bold ml-1">
+                      Mobile Number
+                    </label>
                     <Input
                       {...register("contactInfo.mobile")}
                       type="tel"
                       placeholder="+1 234 567 8900"
                     />
                     {errors.contactInfo?.mobile && (
-                      <p className="text-sm text-destructive font-bold">{errors.contactInfo.mobile.message}</p>
+                      <p className="text-sm text-destructive font-bold">
+                        {errors.contactInfo.mobile.message}
+                      </p>
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold ml-1">LinkedIn URL</label>
+                    <label className="text-sm font-bold ml-1">
+                      LinkedIn URL
+                    </label>
                     <Input
                       {...register("contactInfo.linkedin")}
                       type="url"
                       placeholder="https://linkedin.com/in/your-profile"
                     />
                     {errors.contactInfo?.linkedin && (
-                      <p className="text-sm text-destructive font-bold">{errors.contactInfo.linkedin.message}</p>
+                      <p className="text-sm text-destructive font-bold">
+                        {errors.contactInfo.linkedin.message}
+                      </p>
                     )}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold ml-1">Twitter/X Profile</label>
+                    <label className="text-sm font-bold ml-1">
+                      Twitter/X Profile
+                    </label>
                     <Input
                       {...register("contactInfo.twitter")}
                       type="url"
                       placeholder="https://twitter.com/your-handle"
                     />
                     {errors.contactInfo?.twitter && (
-                      <p className="text-sm text-destructive font-bold">{errors.contactInfo.twitter.message}</p>
+                      <p className="text-sm text-destructive font-bold">
+                        {errors.contactInfo.twitter.message}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -299,7 +353,31 @@ export default function ResumeBuilder({ initialContent }) {
 
               {/* Summary */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">Professional Summary</h3>
+                <div className="flex items-center justify-between border-b pb-2">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70">
+                    Professional Summary
+                  </h3>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleImproveSummary}
+                    disabled={isImproving || !watch("summary")}
+                    className="rounded-lg h-8 px-3 transition-all hover:bg-primary/5 active:scale-95"
+                  >
+                    {isImproving ? (
+                      <>
+                        <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
+                        Improving...
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="h-3 w-3 mr-1.5 text-primary" />
+                        Improve with AI
+                      </>
+                    )}
+                  </Button>
+                </div>
                 <Controller
                   name="summary"
                   control={control}
@@ -313,13 +391,17 @@ export default function ResumeBuilder({ initialContent }) {
                   )}
                 />
                 {errors.summary && (
-                  <p className="text-sm text-destructive font-bold">{errors.summary.message}</p>
+                  <p className="text-sm text-destructive font-bold">
+                    {errors.summary.message}
+                  </p>
                 )}
               </div>
 
               {/* Skills */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">Skills</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">
+                  Skills
+                </h3>
                 <Controller
                   name="skills"
                   control={control}
@@ -333,13 +415,17 @@ export default function ResumeBuilder({ initialContent }) {
                   )}
                 />
                 {errors.skills && (
-                  <p className="text-sm text-destructive font-bold">{errors.skills.message}</p>
+                  <p className="text-sm text-destructive font-bold">
+                    {errors.skills.message}
+                  </p>
                 )}
               </div>
 
               {/* Experience */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">Work Experience</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">
+                  Work Experience
+                </h3>
                 <Controller
                   name="experience"
                   control={control}
@@ -360,7 +446,9 @@ export default function ResumeBuilder({ initialContent }) {
 
               {/* Education */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">Education</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">
+                  Education
+                </h3>
                 <Controller
                   name="education"
                   control={control}
@@ -381,7 +469,9 @@ export default function ResumeBuilder({ initialContent }) {
 
               {/* Projects */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">Projects</h3>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground/70 border-b pb-2">
+                  Projects
+                </h3>
                 <Controller
                   name="projects"
                   control={control}
@@ -445,7 +535,8 @@ export default function ResumeBuilder({ initialContent }) {
             <div className="flex p-3 gap-2 items-center border-2 border-yellow-600/30 bg-yellow-600/5 text-yellow-700 dark:text-yellow-500 rounded-xl animate-in fade-in duration-300">
               <AlertTriangle className="h-5 w-5" />
               <span className="text-sm font-medium">
-                Custom editied markdown will be reset if you update the form data.
+                Custom editied markdown will be reset if you update the form
+                data.
               </span>
             </div>
           )}
