@@ -1,38 +1,109 @@
-1. Added dark theme + themeProvider
-2. Added required components from shadcn ui
-3. /layout.js is for re-usable components to be seen for all pages
-4. /page.js is for the main page
-5. Header and footer added
-6. Added Clerk for authentication
-7. Added proxy.js for Clerk
-8. Added ClerkProvider in layout.js
-9. Added ClerkMiddleware in proxy.js
-10. Added ClerkSignInButton and ClerkSignUpButton in Header.jsx
-11. Generated all landing page content
-12. Create Hero image
-13. Added logo navigation
-14. Created postgresql database using NeonDB
-15. Added database connection in .env
-16. to add weekly updated industy insights - inngest
-17. Prisma imported and added schema for user, assessment, resume, coverletter, industryinsight
-18. added not-found page customized
-19. added onboarding page
-20. added industries.js file
-21. created actions folder for APIs
-22. created /dashboard and /onboarding routes and added logic according to user existance
-23. Using react hook form and zod form for craeting onboarding form -  npm i react-hook-form zod @hookform/resolvers
-24. creating onboardingschema file for onboardingform so that users fill his details correctly
-25. Creating a custom hook use-fetch to handle the updateUser and states of data i.e data , loading and error
-26. Onboarding form complete and user data is added on neon db and user is directed to /dashboard
-27. working on creating industry insights from gemini API.
-28. to work with gemini API - npm i @google/generative-ai and used model: "gemini-2.5-flash"
-29. working on dashboard to show industry insights - added react-spinner for button loading spinner
-30. AI insights generated from gemini , now we require to show them in chart forms , so we install - npm i recharts
-31. to handle dates inside projects we use - npm i date-fns
-32. Completed the industry insights dashboard with recharts and adding skills and insights
-33. Now to update the insigts every week we need to configure inngest functions
-34. complete interview section with quiz taking , quiz result , and quiz dashboard( interview dashboard)
-35. enhanced UI with AI for /onboarding , /dashboard , /interview
-36. working on /resume , COMPLETED : add AI rewrite for summary input
-37. using - npm i @uiw/react-md-editor to edit markdown file and npm i html2pdf to convert into pdf for resume builder
-38. mistakenly installed pdf2html , remove that from dependencies 
+# PathwiseAI — AI-Powered Career Assistant
+
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black.svg)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.3-blue.svg)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0.0-38B2AC.svg)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.25.0-0055FF.svg)](https://www.framer.com/motion/)
+[![Prisma](https://img.shields.io/badge/Prisma-6.19.2-2D3748.svg)](https://www.prisma.io/)
+[![Google Gemini](https://img.shields.io/badge/Google_Gemini-AI-orange.svg)](https://deepmind.google/technologies/gemini/)
+
+---
+
+## 🚀 Project Overview
+
+![PathwiseAI Light Demo](public/Hero%20image%20light.webp)
+
+**PathwiseAI** is a comprehensive, AI-powered career management platform designed to guide professionals through every stage of their career journey. From building ATS-optimized resumes and professional cover letters to generating real-time industry insights and conducting mock interviews, PathwiseAI leverages the power of Google Gemini AI to provide personalized, role-specific guidance.
+
+This project was built as a **full-scale personal learning project** to showcase modern frontend development, backend integration, AI implementation, and performance optimization using the latest web technologies.
+
+---
+
+## 🌐 Live Demo
+
+🔗 **Live Website**  
+👉 **[PathwiseAI](https://pathwise-ai.vercel.app/)** *(Add your actual link here)*
+
+---
+
+## 🎯 Key Highlights
+
+- **AI-Driven Personalization**: Tailors all career assets (resumes, cover letters) to specific job roles and industry expectations.
+- **Weekly Industry Insights**: Automated background jobs (via Inngest) to keep users updated on latest market trends and skill demands.
+- **ATS-Optimized Resume Builder**: A professional markdown editor with AI-powered content generation and PDF export.
+- **Mock Interview Simulator**: Realistic role-based interview practice with structured AI feedback on responses.
+- **Modern Tech Stack**: Built with Next.js 16, Tailwind CSS 4, and Framer Motion for a premium, responsive experience.
+
+---
+
+## 🛠️ Tech Stack & Tools
+
+### Frontend
+- **React 19** — Component-based architecture
+- **Next.js 16** — Server-side rendering and App Router
+- **Tailwind CSS 4** — Utility-first styling
+- **Framer Motion 12** — Animations and transitions
+- **Lucide React** — Premium icon set
+- **Recharts** — Dynamic data visualization for industry trends
+
+### Backend & AI
+- **Google Gemini 1.5/2.5 Flash** — Advanced AI content generation and analysis
+- **Prisma (ORM)** — Type-safe database management
+- **PostgreSQL (Neon DB)** — Serverless relational database
+- **Inngest** — Event-driven background jobs for periodic data updates
+- **Clerk** — Robust authentication and user management
+
+### Design & Utilities
+- **Figma** — UI/UX design and prototyping
+- **React Hook Form & Zod** — Type-safe form validation
+- **Sonner** — Elegant toast notifications
+- **UIW React MD Editor** — Professional markdown editing experience
+
+---
+
+## ✨ Features
+
+- **Personalized Onboarding**: Tailors the entire platform based on your industry, role, and experience level.
+- **AI Career Guidance**: Continuous, personalized advice aligned with your professional growth trajectory.
+- **Smart Cover Letter Generator**: Creates role-specific cover letters that articulate your strengths and value.
+- **AI Resume Builder**: Builds structured, ATS-friendly resumes with one-click PDF export using `html2pdf.js`.
+- **Interactive Mock Interviews**: Simulated interviews with real-time feedback to refine communication and articulation.
+- **Data-Driven Insights**: Weekly updated reports on role demand, compensation benchmarks, and evolving skill requirements.
+- **Dark / Light Theme Support**: Fully responsive design with theme persistence.
+
+---
+
+## 🎨 Design Process
+
+All visuals and interactions were designed to feel professional and empowering, including:
+
+- **Brand Identity**: Logo and color palette designed to inspire confidence and professional growth.
+- **Layout System**: Focused on clarity and ease of use for complex data-driven dashboards.
+- **Motion Design**: Subtle, micro-animations using Framer Motion to enhance the premium feel.
+
+🔗 **Figma Design Portfolio**  
+👉 **[Harman Khurmi Figma](https://www.figma.com/@harmankhurmi)**
+
+---
+
+## 📸 Screenshots & Mockups
+
+### Hero Section
+![Hero Section Light](public/Hero%20image%20light.webp)
+![Hero Section Dark](public/Hero%20image%20dark.webp)
+
+### Dashboard & Insights
+![Dashboard](public/Industry%20&%20skill.svg)
+
+### Resume Builder
+![Resume Builder](public/Resume%20builder.svg)
+
+### Interview Practice
+![Interview Practice](public/mock%20interview.svg)
+
+---
+
+## 📬 Contact
+
+**Harman Khurmi**  
+🔗 [GitHub](https://github.com/Harman-khurmi) | [LinkedIn](https://www.linkedin.com/in/harmankhurmi/) | [Portfolio](https://www.behance.net/harmankhurmi)
