@@ -6,29 +6,10 @@ import { assets } from "@/app/assets";
 import { motion, easeInOut } from "motion/react";
 
 import {
-  SignedIn,
-  SignedOut,
   SignInButton,
-  SignUpButton,
-  UserButton,
 } from "@clerk/nextjs";
+
 import Link from "next/link";
-import {
-  ChevronDown,
-  FileUser,
-  GraduationCap,
-  LayoutDashboard,
-  Newspaper,
-  Sparkles,
-} from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Hero = () => {
   return (
@@ -108,7 +89,7 @@ const Hero = () => {
               </motion.p>
             </div>
             {/* buttons */}
-            <SignedOut>
+            {/* <SignedOut> */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -132,9 +113,9 @@ const Hero = () => {
                   </Button>
                 </Link>
               </motion.div>
-            </SignedOut>
+            {/* </SignedOut> */}
             {/* signed in */}
-            <SignedIn>
+            {/* <SignedIn>
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +159,7 @@ const Hero = () => {
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <Link
-                        href={"/interview-prep"}
+                        href={"/interview"}
                         className="flex gap-2 lg:gap-3 items-center"
                       >
                         <GraduationCap />
@@ -198,7 +179,7 @@ const Hero = () => {
                   </Button>
                 </Link>
               </motion.div>
-            </SignedIn>
+            </SignedIn> */}
           </div>
           {/* hero image */}
           {/* md: */}

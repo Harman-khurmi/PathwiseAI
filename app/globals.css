@@ -143,11 +143,11 @@
 
 @layer components {
   .nav-items {
-    @apply mx-4 lg:mx-6 text-sm lg:text-[15px] text-text-dark dark:text-white border-primary hidden shrink-0 lg:inline-block transition-all duration-200;
+    @apply mx-4 lg:mx-6 text-sm lg:text-[15px] text-text-dark dark:text-white hidden shrink-0 lg:inline-block transition-all duration-200 border-b border-transparent;
   }
 
   .nav-items:hover {
-    @apply border-b -translate-y-0.5 border-primary transition-transform duration-200 ease-out;
+    @apply transition-all -translate-y-0.5 border-primary duration-200 ease-in-out;
   }
 
   .btn-primary {
@@ -176,6 +176,11 @@
 
   .gradient-button {
     background: var(--gradient-button);
+  }
+
+  .gradient-title {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
   }
 
   .section-offset {

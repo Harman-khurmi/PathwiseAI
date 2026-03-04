@@ -15,7 +15,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 const Reviews = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
+    Autoplay({ delay: 3000, stopOnInteraction: false }),
   );
 
   return (
@@ -32,12 +32,12 @@ const Reviews = () => {
           onMouseEnter={() => plugin.current.stop()}
           onMouseLeave={() => plugin.current.play()}
           className="w-full py-16"
-          >
+        >
           <CarouselContent className="-ml-4">
             {testimonials.map((testimonial, index) => (
               <CarouselItem
-              key={index}
-              className="
+                key={index}
+                className="
               pl-4 
               basis-full
               md:basis-1/2
@@ -49,7 +49,7 @@ const Reviews = () => {
                   title={testimonial.title}
                   image={testimonial.image}
                   review={testimonial.review}
-                  />
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
