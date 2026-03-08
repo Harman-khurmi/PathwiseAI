@@ -107,3 +107,13 @@ All visuals and interactions were designed to feel professional and empowering, 
 
 **Harman Khurmi**  
 🔗 [GitHub](https://github.com/Harman-khurmi) | [LinkedIn](https://www.linkedin.com/in/harmankhurmi/) | [Portfolio](https://harmanpreet.pop.site/)
+
+## ⚖️ License & Usage
+
+This project is a **personal portfolio project** created by **Harman Khurmi**.
+
+The source code is publicly visible for **recruiters, reviewers, and educational reference only**.
+
+You are **not allowed to copy, redistribute, modify, or claim this project as your own work**.
+
+If you would like to use any part of this project, please contact the author for permission.
