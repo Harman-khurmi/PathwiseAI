@@ -10,9 +10,9 @@ const OnboardingPage = async () => {
   if (isOnboarded) redirect("/dashboard");
 
   return (
-    <main>
+    <div className="w-full">
       <OnboardingForm industries={industries} />
-    </main>
+    </div>
   );
 };
 
