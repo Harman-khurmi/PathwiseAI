@@ -29,7 +29,7 @@ const buttonVariants = cva(
         icon: "size-9",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
-        responsive: "responsive-btn",
+        responsive: "responsive-btn lg:h-11 lg:text-base lg:px-6 lg:has-[>svg]:px-4",
         responsiveIcon: "responsive-icon",
       },
     },

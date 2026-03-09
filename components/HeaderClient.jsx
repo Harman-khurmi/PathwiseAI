@@ -189,7 +189,7 @@ const HeaderClient = () => {
               <SignedIn>
                 <DropdownMenu modal={false}>
                   <DropdownMenuTrigger asChild>
-                    <Button size="responsive" className="hidden md:flex gap-2">
+                    <Button size="responsive" variant="outline" className="hidden md:flex gap-2">
                       <Sparkles className="h-4 w-4" />
                       Growth Tools
                       <ChevronDown className="h-4 w-4" />
@@ -229,7 +229,6 @@ const HeaderClient = () => {
                 <Link href={"/dashboard"}>
                   <Button
                     size="responsive"
-                    variant="outline"
                     className={"hidden md:flex gap-2"}
                   >
                     <LayoutDashboard className="h-4 w-4" />
@@ -264,9 +263,6 @@ const HeaderClient = () => {
                     <Button
                       size="responsive"
                       variant="outline"
-                      className={
-                        "lg:h-11 lg:text-base lg:px-6 lg:has-[>svg]:px-2"
-                      }
                     >
                       Sign In
                     </Button>
@@ -276,9 +272,6 @@ const HeaderClient = () => {
                   <SignUpButton>
                     <Button
                       size="responsive"
-                      className={
-                        "lg:h-11 lg:text-base lg:px-6 lg:has-[>svg]:px-2"
-                      }
                     >
                       Get Started
                     </Button>
