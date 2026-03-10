@@ -1,8 +1,14 @@
 "use client";
 
+import { useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function Loading() {
+const HardRedirect = ({ to }) => {
+  useEffect(() => {
+    // Force a full browser navigation to break out of React hydration mismatch
+    window.location.href = to;
+  }, [to]);
+
   return (
     <div className="flex items-center justify-center py-10 px-4 min-h-[80vh]">
       <Skeleton className="w-full max-w-2xl rounded-3xl border-2 border-accent bg-accent/35 p-8 md:p-12 animate-pulse space-y-8">
@@ -36,4 +42,6 @@ export default function Loading() {
       </Skeleton>
     </div>
   );
-}
+};
+
+export default HardRedirect;
