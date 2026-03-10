@@ -18,8 +18,8 @@ const SalaryChart = ({ salaryData, isMounted }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.5, delay: 0.4 }}
       className="w-full"
     >

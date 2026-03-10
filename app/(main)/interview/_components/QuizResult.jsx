@@ -42,8 +42,8 @@ export default function QuizResult({
     >
       {/* Header Section */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5 }}
         className={cn(
           "flex flex-col items-center text-center space-y-4",
@@ -64,8 +64,8 @@ export default function QuizResult({
       <div className="grid grid-cols-1 gap-8">
         {/* Score Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="bg-card border rounded-3xl p-8 md:p-10 shadow-sm relative overflow-hidden"
         >
@@ -129,8 +129,8 @@ export default function QuizResult({
             {result.questions.map((q, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
+                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                 className={cn(
                   "group relative border rounded-2xl p-6 transition-all duration-300 hover:shadow-md",
@@ -201,8 +201,8 @@ export default function QuizResult({
 
       {!hideStartNew && (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-12 flex justify-center"
         >

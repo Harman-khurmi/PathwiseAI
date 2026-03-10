@@ -11,8 +11,8 @@ const MockInterviewPage = () => {
   return (
     <div className="py-8 md:py-12 space-y-10 w-full">
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
+        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5 }}
       >
         <Link href="/interview">
@@ -30,8 +30,8 @@ const MockInterviewPage = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className="space-y-3 border-b pb-8"
       >
@@ -45,8 +45,8 @@ const MockInterviewPage = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.99 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.99, filter: "blur(4px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.6, delay: 0.2 }}
         className="pt-6"
       >

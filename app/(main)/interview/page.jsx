@@ -53,8 +53,8 @@ export default function InterviewPrepPage() {
     <div className="py-8 md:py-12 space-y-12 w-full text-balance">
       {/* Header Section */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5 }}
         className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b pb-8"
       >
@@ -71,8 +71,8 @@ export default function InterviewPrepPage() {
 
       {/* Stats Section */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <StatsCards assessments={assessments} />
@@ -81,16 +81,16 @@ export default function InterviewPrepPage() {
       {/* Chart and History Section */}
       <div className="grid grid-cols-1 gap-12">
         <motion.div
-          initial={{ opacity: 0, scale: 0.995 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.995, filter: "blur(4px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <PerformanceChart assessments={assessments} />
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <QuizList assessments={assessments} />

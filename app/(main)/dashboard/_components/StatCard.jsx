@@ -10,8 +10,8 @@ import { motion } from "motion/react";
 const StatCard = ({ stat, index }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
       <Card className="group h-full cursor-default overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.011] hover:border-[#55C7F1]/25">

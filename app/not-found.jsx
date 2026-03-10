@@ -40,15 +40,15 @@ export default function NotFound() {
 
       {/* Content Container */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative z-10 w-full max-w-3xl mx-auto text-center"
       >
         {/* Error Badge */}
         <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          initial={{ scale: 0.8, opacity: 0, filter: "blur(4px)" }}
+          animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
           transition={{ delay: 0.3, duration: 0.4 }}
           className="inline-block px-5 py-2 mb-8 text-sm font-bold tracking-widest uppercase rounded-full border border-primary/30 bg-primary/10 text-primary"
         >

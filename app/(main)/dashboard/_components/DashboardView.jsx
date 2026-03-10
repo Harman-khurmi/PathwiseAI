@@ -65,10 +65,6 @@ const DashboardView = ({ insights, firstName }) => {
     }));
   }, [insights?.salaryRanges]);
 
-  const nextUpdateDistance = insights?.nextUpdate
-    ? formatDistanceToNow(new Date(insights.nextUpdate), { addSuffix: true })
-    : "N/A";
-
   const stats = useMemo(() => {
     if (!insights) return [];
 
@@ -81,7 +77,7 @@ const DashboardView = ({ insights, firstName }) => {
       {
         title: "Market Outlook",
         value: insights.marketOutlook,
-        description: `Next update ${updateDistance}`,
+        description: isMounted ? `Next update ${updateDistance}` : "Calculating date...",
         icon:
           marketOutlook === "positive"
             ? TrendingUp
@@ -129,7 +125,7 @@ const DashboardView = ({ insights, firstName }) => {
         skills: insights.topSkills,
       },
     ];
-  }, [insights]);
+  }, [insights, isMounted]);
 
   if (!insights) {
     return <DashboardLoading />;
@@ -139,8 +135,8 @@ const DashboardView = ({ insights, firstName }) => {
     <div className="space-y-10 pb-0">
       {/* Greetings Header */}
       <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -20 , filter: "blur(4px)"}}
+        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.6 }}
         className="space-y-2"
       >
@@ -206,7 +202,7 @@ const DashboardView = ({ insights, firstName }) => {
                 <p className="flex items-center gap-2 text-xs lg:px-2 lg:text-sm">
                   <Clock className="h-4 w-4 text-[#55C7F1] transition-colors duration-400 ease-in-out" />
                   Fresh Date :{" "}
-                  {format(new Date(insights.createdAt), "dd MMM, yyyy")}
+                  {isMounted ? format(new Date(insights.createdAt), "dd MMM, yyyy") : "..."}
                 </p>
               </span>
               <p className="text-muted-foreground text-[10px] font-semibold md:text-xs">
@@ -228,8 +224,8 @@ const DashboardView = ({ insights, firstName }) => {
           {/* Trends & Skills details */}
           <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Card className="group h-full overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 hover:scale-[1.004] hover:border-[#55C7F1]/25">
@@ -260,8 +256,8 @@ const DashboardView = ({ insights, firstName }) => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Card className="group h-full overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.004] hover:border-[#55C7F1]/25">

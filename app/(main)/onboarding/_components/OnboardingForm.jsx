@@ -37,8 +37,8 @@ const inputStyles =
   "border-2 border-[#55C7F1]/10 bg-[#55C7F1]/5 hover:bg-[#55C7F1]/10 hover:border-[#55C7F1]/25 focus:border-[#55C7F1]/50! focus-visible:border-[#55C7F1]/50! focus-visible:ring-[#55C7F1]/30! focus-visible:ring-[3px]! transition-all duration-400 outline-none";
 
 const fadeIn = {
-  hidden: { opacity: 0, scale: 0.98 },
-  visible: { opacity: 1, scale: 1 },
+  hidden: { opacity: 0, scale: 0.98, filter: "blur(4px)" },
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)" },
 };
 
 const OnboardingForm = ({ industries }) => {
@@ -240,9 +240,9 @@ const SubIndustryField = ({
       {watchIndustry ? (
         <motion.div
           key="sub"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, x: -20, filter: "blur(4px)" }}
           className="space-y-3"
         >
           <Label
@@ -299,9 +299,9 @@ const SubIndustryField = ({
       ) : (
         <motion.div
           key="fallback"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, filter: "blur(4px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, filter: "blur(4px)" }}
           className="bg-[#55C7F1]/5 border-[#55C7F1]/20 mt-2 flex h-18 w-full items-center justify-center rounded-lg border-2 border-dashed p-3 opacity-70 md:p-6"
         >
           <p className="text-muted-foreground text-center text-xs font-bold leading-relaxed tracking-widest uppercase md:text-sm">
