@@ -222,6 +222,24 @@
   textarea {
     @apply p-2 text-sm md:text-base border rounded-md;
   }
+}
 
+/* Hide scrollbar for custom-scrollbar class */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
+.custom-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Bulletproof Recharts Focus Ring Removal */
+.recharts-responsive-container *:focus,
+.recharts-wrapper *:focus,
+.recharts-surface *:focus,
+.recharts-cartesian-axis-tick *:focus,
+.recharts-layer *:focus,
+.recharts-bar-rectangle:focus {
+  outline: none !important;
 }

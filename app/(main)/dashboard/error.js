@@ -15,8 +15,8 @@ export default function Error({ error, reset }) {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
         className="max-w-md w-full"
       >
         <div className="relative group">

@@ -9,6 +9,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Toaster } from "@/components/ui/sonner";
 import ScrollToTop from "@/components/ScrollToTop";
+import InDevelopment from "@/components/in-development";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
             <Header />
             <ScrollToTop />
             <Toaster richColors position="top-center" />
+            <InDevelopment />
             <div className="min-h-screen overflow-x-clip">{children}</div>
             {/* footer component*/}
           </ThemeProvider>

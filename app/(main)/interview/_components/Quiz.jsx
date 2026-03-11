@@ -57,8 +57,8 @@ const Quiz = () => {
   if (!quizData) {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
+        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.5 }}
         className="max-w-3xl py-12"
       >
@@ -191,8 +191,8 @@ const QuizDisplay = ({ questions, onStartNew }) => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentQuestion}
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 10, filter: "blur(4px)" }}
+          animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
           exit={{ opacity: 0, x: -10 }}
           transition={{ duration: 0.3 }}
         >
@@ -254,8 +254,8 @@ const QuizDisplay = ({ questions, onStartNew }) => {
               <AnimatePresence>
                 {showExplanation && (
                   <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
+                    initial={{ opacity: 0, height: 0, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, height: "auto", filter: "blur(0px)" }}
                     className="mt-8 p-8 rounded-3xl bg-primary/5 border-2 border-primary/10"
                   >
                     <div className="flex items-center gap-2 mb-4">

@@ -17,17 +17,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { format } from "date-fns";
 
 export default function PerformanceChart({ assessments }) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   const chartData = useMemo(() => {
     if (!assessments) return [];
     return [...assessments].reverse().map((assessment) => ({
-      date: format(new Date(assessment.createdAt), "MMM dd"),
+      date: isMounted ? format(new Date(assessment.createdAt), "MMM dd") : "",
       score: assessment.quizScore,
     }));
-  }, [assessments]);
+  }, [assessments, isMounted]);
 
   return (
     <Card className="border-2 shadow-sm">

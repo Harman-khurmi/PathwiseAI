@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { format } from "date-fns";
+import { useState, useEffect } from "react";
 import { Edit2, Eye, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -27,6 +28,12 @@ import { deleteCoverLetter } from "@/actions/cover-letter";
 
 export default function CoverLetterList({ coverLetters }) {
   const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleDelete = async (id) => {
     try {
@@ -69,7 +76,7 @@ export default function CoverLetterList({ coverLetters }) {
                   {letter.companyName}
                 </CardTitle>
                 <CardDescription className="font-medium">
-                  Generated on {format(new Date(letter.createdAt), "PPP")}
+                  Generated on {isMounted ? format(new Date(letter.createdAt), "PPP") : "..."}
                 </CardDescription>
               </div>
               <div className="flex items-center gap-2 shrink-0">

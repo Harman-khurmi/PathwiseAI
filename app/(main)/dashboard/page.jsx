@@ -2,21 +2,22 @@ import { getUserOnboardingStatus } from "@/actions/user";
 import { redirect } from "next/navigation";
 import React from "react";
 import DashboardView from "./_components/DashboardView";
+import HardRedirect from "@/components/HardRedirect";
 import { getIndustryInsights } from "@/actions/dashboard";
 import { currentUser } from "@clerk/nextjs/server";
 
 const IndustryInsightPage = async () => {
   // ⚠️ DEBUG: Uncomment the line below to test the loading skeleton continuously
   // await new Promise(() => {});
-  
+
   // to check error.js
-  // throw new Error("Test Error"); 
+  // throw new Error("Test Error");
 
   const user = await currentUser();
   const { isOnboarded } = await getUserOnboardingStatus();
 
   if (!isOnboarded) {
-    redirect("/onboarding");
+    return <HardRedirect to="/onboarding" />;
   }
 
   const insights = await getIndustryInsights();

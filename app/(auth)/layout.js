@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const layout = ({children}) => {
+const layout = ({ children }) => {
   return (
-    <div className='flex items-center justify-center h-screen mt-32'>{children}</div>
-  )
-}
+    <div className="flex justify-center pt-32 pb-12 min-h-screen">
+      {children}
+    </div>
+  );
+};
 
-export default layout
+export default layout;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,12 @@ import { cn } from "@/lib/utils";
 export default function QuizList({ assessments }) {
   const router = useRouter();
   const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -76,10 +82,9 @@ export default function QuizList({ assessments }) {
                       <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-sm text-muted-foreground font-medium">
                         <span className="flex items-center gap-1.5">
                           <Calendar className="h-3.5 w-3.5" />
-                          {format(
-                            new Date(assessment.createdAt),
-                            "MMM dd, yyyy",
-                          )}
+                          {isMounted
+                            ? format(new Date(assessment.createdAt), "MMM dd, yyyy")
+                            : "..."}
                         </span>
                         <span
                           className={cn(
