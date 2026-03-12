@@ -22,7 +22,7 @@ This project was built as a **full-scale personal learning project** to showcase
 ## 🌐 Live Demo
 
 🔗 **Live Website**  
-👉 **[PathwiseAI](https://pathwise-ai-pro.vercel.app/)**
+👉 **[PathwiseAI](https://pathwiseai.harmancodes.site/)**
 
 ---
 
