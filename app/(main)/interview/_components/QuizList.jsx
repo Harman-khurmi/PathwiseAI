@@ -25,6 +25,7 @@ export default function QuizList({ assessments }) {
   const router = useRouter();
   const [selectedQuiz, setSelectedQuiz] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(5);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsMounted(true), 0);
@@ -33,67 +34,74 @@ export default function QuizList({ assessments }) {
 
   return (
     <>
-      <Card className="border-2 shadow-sm overflow-hidden">
-        <CardHeader className="bg-muted/30 pb-8">
+      <Card className="group h-full overflow-hidden rounded-xl border-3 border-primary/10 bg-primary/5 transition-all duration-400 hover:scale-[1.004] hover:border-primary/25 w-full shadow-none">
+        <CardHeader className="pb-4">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <CardTitle className="gradient-title text-3xl md:text-4xl mb-2">
+              <CardTitle className="text-xl font-black md:text-2xl">
                 Recent Quizzes
               </CardTitle>
-              <CardDescription className="text-base">
+              <CardDescription className="text-primary/70 group-hover:text-primary text-xs font-black transition-all duration-400 ease-in-out md:text-sm mt-1">
                 Review your past quiz performance and track your growth.
               </CardDescription>
             </div>
-            <Button
-              onClick={() => router.push("/interview/mock")}
-              className="btn-primary group h-12 px-6 rounded-xl flex items-center gap-2"
-            >
-              Start New Quiz
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            {assessments?.length > 0 && (
+              <Button
+                size="responsive"
+                onClick={() => router.push("/interview/mock")}
+                className="flex items-center group/CTA"
+              >
+                Start New Quiz
+                <ArrowRight className="h-4 w-4 group-hover/CTA:translate-x-1 transition-transform duration-400 ease-in-out" />
+              </Button>
+            )}
           </div>
         </CardHeader>
-        <CardContent className="p-0">
-          <div className="divide-y divide-border/50">
+        <CardContent className="px-5 md:px-6 pb-6 ">
+          <div className="space-y-4">
             {assessments?.length > 0 ? (
-              assessments.map((assessment, i) => (
-                <div
-                  key={assessment.id}
-                  className="group cursor-pointer hover:bg-muted/50 transition-all duration-300 p-6 flex items-center justify-between"
+              <>
+                {[...assessments]
+                  .reverse()
+                  .slice(0, visibleCount)
+                  .map((assessment, i) => (
+                    <div
+                      key={assessment.id}
+                  className="group/quiz cursor-pointer rounded-xl border-2 border-transparent bg-background/40 hover:bg-primary/5 hover:border-primary/20 transition-all duration-400 ease-in-out p-4 md:p-6 flex items-center justify-between shadow-none group/icon"
                   onClick={() => setSelectedQuiz(assessment)}
                 >
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-4 md:gap-6 ">
                     <div
-                      className={cn(
-                        "h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110",
+                      className={cn(  
+                        "h-12 w-12 md:h-14 md:w-14 rounded-lg flex items-center justify-center shrink-0 transition-transform group-hover/quiz:scale-110 shadow-none duration-400 ease-in-out",
                         assessment.quizScore >= 80
-                          ? "bg-green-500/10 text-green-600"
+                          ? "bg-green-500/15 text-green-600 border border-green-500/20"
                           : assessment.quizScore >= 50
-                            ? "bg-yellow-500/10 text-yellow-600"
-                            : "bg-red-500/10 text-red-600",
+                            ? "bg-yellow-500/15 text-yellow-600 border border-yellow-500/20"
+                            : "bg-red-500/15 text-red-600 border border-red-500/20",
                       )}
                     >
-                      <Trophy className="h-7 w-7" />
+                      <Trophy className="h-6 w-6 md:h-7 md:w-7" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                      <h3 className="text-lg md:text-xl font-black mb-1.5 text-text-dark/90 dark:text-text-light/90 group-hover/quiz:text-primary dark:group-hover/quiz:text-primary transition-colors duration-400 ease-in-out">
                         Quiz #{assessments.length - i}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-sm text-muted-foreground font-medium">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="h-3.5 w-3.5" />
+                      <div className="flex flex-wrap items-center gap-y-2 gap-x-2 md:gap-x-4 text-xs md:text-sm text-muted-foreground font-semibold">
+                        <span className="flex items-center gap-1.5 bg-background/50 px-2.5 py-1 rounded-md shrink-0">
+                          <Calendar className="h-3.5 w-3.5 group-hover/icon:text-primary" />
                           {isMounted
                             ? format(new Date(assessment.createdAt), "MMM dd, yyyy")
                             : "..."}
                         </span>
                         <span
                           className={cn(
-                            "px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-bold",
+                            "px-3 py-1 rounded-md text-[10px] md:text-xs uppercase tracking-widest font-black shadow-none",
                             assessment.quizScore >= 80
-                              ? "bg-green-500/10 text-green-700"
+                              ? "bg-green-500/15 text-green-700 dark:text-green-400"
                               : assessment.quizScore >= 50
-                                ? "bg-yellow-500/10 text-yellow-700"
-                                : "bg-red-500/10 text-red-700",
+                                ? "bg-yellow-500/15 text-yellow-700 dark:text-yellow-400"
+                                : "bg-red-500/15 text-red-700 dark:text-red-400",
                           )}
                         >
                           Score: {assessment.quizScore.toFixed(0)}%
@@ -101,17 +109,44 @@ export default function QuizList({ assessments }) {
                       </div>
                     </div>
                   </div>
-                  <ChevronRight className="h-6 w-6 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <div className="p-2 md:p-3 md:rounded-lg transition-all duration-400 ease-in-out group-hover/quiz:bg-primary/10 group-hover/quiz:translate-x-1">
+                    <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-muted-foreground/30 group-hover/quiz:text-primary transition-colors duration-400 ease-in-out" />
+                  </div>
                 </div>
-              ))
+              ))}
+                {assessments.length > 5 && (
+                  <div className="pt-4 flex justify-center">
+                    {assessments.length > visibleCount ? (
+                      <Button
+                        variant="outline"
+                        size="responsive"
+                        onClick={() => setVisibleCount(assessments.length)}
+                        className="border-primary/20 text-muted-foreground hover:bg-primary/5 hover:text-primary"
+                      >
+                        Show All
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="responsive"
+                        onClick={() => setVisibleCount(5)}
+                        className="border-primary/20 text-muted-foreground hover:bg-primary/5 hover:text-primary"
+                      >
+                        Show Less
+                      </Button>
+                    )}
+                  </div>
+                )}
+              </>
             ) : (
-              <div className="p-12 text-center">
-                <p className="text-muted-foreground mb-4">
+              <div className="flex flex-col items-center justify-center p-12 text-center rounded-xl border-2 border-dashed border-primary/20 bg-background/40">
+                <p className="text-muted-foreground mb-4 font-medium">
                   You haven&apos;t taken any quizzes yet.
                 </p>
                 <Button
-                  onClick={() => router.push("/interview/mock")}
                   variant="outline"
+                  size="responsive"
+                  onClick={() => router.push("/interview/mock")}
                 >
                   Take your first quiz
                 </Button>

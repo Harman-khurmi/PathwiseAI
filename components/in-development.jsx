@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Hammer } from "lucide-react";
 
-const UNDER_CONSTRUCTION_ROUTES = ["/resume", "/interview", "/cover-letter"];
+const UNDER_CONSTRUCTION_ROUTES = ["/resume", "/cover-letter"];
 
 const InDevelopment = () => {
   const [isVisible, setIsVisible] = useState(false);

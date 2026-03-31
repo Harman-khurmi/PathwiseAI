@@ -26,76 +26,63 @@ export default function InterviewPrepPage() {
 
   if (loading) {
     return (
-      <div className="py-8 md:py-12 space-y-12">
-        <div className="flex items-center justify-between border-b pb-8">
-          <div className="space-y-3">
-            <Skeleton className="h-14 w-64 md:h-16" />
-            <Skeleton className="h-5 w-[140%] max-w-md" />
+      <div className="py-6 md:py-8">
+        <Skeleton className="flex flex-col items-start rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 p-6 md:p-8 lg:p-10 gap-8 w-full animate-pulse">
+          <div className="w-full space-y-8">
+            <div className="flex flex-col items-start md:flex-row md:items-center justify-between gap-4">
+              <div className="space-y-3">
+                <Skeleton className="h-12 w-64 md:h-16 md:w-96" />
+                <Skeleton className="h-4 w-72 md:w-[500px]" />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              {[1, 2, 3].map((i) => (
+                <Skeleton key={i} className="h-32 rounded-xl" />
+              ))}
+            </div>
+            <div className="w-full space-y-8">
+              <Skeleton className="h-[400px] w-full rounded-xl" />
+              <Skeleton className="h-[400px] w-full rounded-xl" />
+            </div>
           </div>
-          <Skeleton className="h-10 w-40 rounded-full hidden md:block" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <Skeleton className="h-44 rounded-3xl" />
-          <Skeleton className="h-44 rounded-3xl" />
-          <Skeleton className="h-44 rounded-3xl" />
-          <Skeleton className="h-44 rounded-3xl" />
-        </div>
-        <Skeleton className="h-[500px] rounded-[32px]" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <Skeleton className="h-96 rounded-[32px]" />
-          <Skeleton className="h-96 rounded-[32px]" />
-        </div>
+        </Skeleton>
       </div>
     );
   }
 
   return (
-    <div className="py-8 md:py-12 space-y-12 w-full text-balance">
-      {/* Header Section */}
+    <div className="py-6 md:py-8">
       <motion.div
-        initial={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+        initial={{ opacity: 0, y: 40, filter: "blur(4px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b pb-8"
+        className="flex flex-col items-start rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 p-6 md:p-8 lg:p-10 gap-8 w-full hover:border-brand-primary/25 transition-all duration-800 ease-in-out shadow-inner shadow-primary/0 hover:shadow-primary/20"
       >
-        <div className="space-y-2">
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight">
-            Interview <span className="gradient-title">Preparation</span>
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
-            Practice with highly personalised, AI-generated mock interviews
-            tailored to your professional profile and industry trends.
-          </p>
+        <div className="w-full space-y-8">
+          {/* Header Section */}
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-stretch">
+            <div className="space-y-2">
+              <h1 className="text-3xl leading-tight font-black tracking-tight md:text-5xl">
+                Interview{" "}
+                <span className="gradient-title text-3xl leading-tight font-black tracking-tight md:text-5xl">
+                  Preparation
+                </span>
+              </h1>
+              <p className="text-muted-foreground text-sm font-medium md:text-base mt-2">
+                Practice with highly personalised, AI-generated mock interviews
+                tailored to your professional profile and industry trends.
+              </p>
+            </div>
+          </div>
+
+          <StatsCards assessments={assessments} />
+
+          <div className="flex flex-col w-full space-y-8">
+            <PerformanceChart assessments={assessments} />
+            <QuizList assessments={assessments} />
+          </div>
         </div>
       </motion.div>
-
-      {/* Stats Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <StatsCards assessments={assessments} />
-      </motion.div>
-
-      {/* Chart and History Section */}
-      <div className="grid grid-cols-1 gap-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.995, filter: "blur(4px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <PerformanceChart assessments={assessments} />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <QuizList assessments={assessments} />
-        </motion.div>
-      </div>
     </div>
   );
 }

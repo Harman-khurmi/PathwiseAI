@@ -7,6 +7,14 @@
 
   --color-text-dark: oklch(19.28% 0.045 243.97);
   --color-text-light: #F0F0F0;
+  
+  --color-brand-primary: #55C7F1;
+  --color-brand-secondary: #3C71FA;
+  --color-brand-hover: #39BDEE;
+  --color-brand-active: #1D58F0;
+  --color-brand-light: #FEFBFC;
+  --color-brand-dark: #011627;
+  --color-brand-dark-alt: #080D1A;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -61,7 +69,7 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(99.07% 0.003 354.69);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(19.28% 0.045 243.97);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -96,7 +104,7 @@
 
 .dark {
   --background: oklch(16.07% 0.027 265.83);
-  --foreground: oklch(0.985 0 0);
+  --foreground: #F0F0F0;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -151,11 +159,11 @@
   }
 
   .btn-primary {
-    @apply bg-linear-to-b from-[#55C7F1] to-[#3C71FA] text-[#FEFBFC] rounded-md font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-[#3C71FA]/30 dark:hover:shadow-[#011627]/30 hover:from-[#39BDEE] hover:to-[#1D58F0] active:translate-y-0 active:shadow-md focus:outline-none focus:ring-2 focus:ring-[#55C7F1]/50 cursor-pointer
+    @apply bg-linear-to-b from-brand-primary to-brand-secondary text-brand-light rounded-md font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-brand-secondary/30 dark:hover:shadow-brand-dark/30 hover:from-brand-hover hover:to-brand-active active:translate-y-0 active:shadow-md focus:outline-none focus:ring-2 focus:ring-brand-primary/50 cursor-pointer
   }
 
   .btn-outline {
-    @apply rounded-md cursor-pointer dark:hover:bg-[#FEFBFC]/5 font-medium text-[#011627] dark:text-[#FEFBFC] bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 border border-[#011627]/20 hover:border-[#011627]/90 dark:border-[#FEFBFC]/30 dark:hover:border-[#FEFBFC]/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#55C7F1]/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-[#011627]/30 dark:hover:shadow-[#011627]/30
+    @apply rounded-md cursor-pointer dark:hover:bg-brand-light/5 font-medium text-brand-dark dark:text-brand-light bg-transparent transition-all duration-300 ease-in-out hover:-translate-y-0.5 border border-brand-dark/20 hover:border-brand-dark/90 dark:border-brand-light/30 dark:hover:border-brand-light/90 active:translate-y-0 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:scale-[0.98] hover:shadow-md hover:shadow-brand-dark/30 dark:hover:shadow-brand-dark/30
   }
 
   .responsive-btn {
@@ -192,7 +200,7 @@
 
 @layer base {
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#080D1A] dark:text-white;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark-alt dark:text-white;
   }
 
   h2 {

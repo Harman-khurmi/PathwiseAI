@@ -62,7 +62,7 @@ const Quiz = () => {
         transition={{ duration: 0.5 }}
         className="max-w-3xl py-12"
       >
-        <Card className="border-2 shadow-2xl max-w-2xl mx-auto overflow-hidden rounded-[32px] relative">
+        <Card className="border-2 shadow-2xl max-w-2xl mx-auto overflow-hidden rounded-3xl relative">
           <div className="absolute top-0 right-0 p-10 opacity-10 pointer-events-none">
             <Lightbulb size={120} className="text-primary rotate-12" />
           </div>
@@ -196,7 +196,7 @@ const QuizDisplay = ({ questions, onStartNew }) => {
           exit={{ opacity: 0, x: -10 }}
           transition={{ duration: 0.3 }}
         >
-          <Card className="border-2 shadow-sm overflow-hidden rounded-[32px]">
+          <Card className="border-2 shadow-sm overflow-hidden rounded-3xl">
             <CardHeader className="p-8 pb-4">
               <CardTitle className="text-2xl font-black leading-tight md:text-4xl italic">
                 &ldquo;{question.question}&rdquo;
