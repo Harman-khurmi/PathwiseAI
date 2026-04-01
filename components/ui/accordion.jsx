@@ -26,13 +26,13 @@ function AccordionTrigger({ className, children, ...props }) {
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 bg-[#55C7F1]/10 border-2 border-[#55C7F1]/10 p-4 px-6 data-[state=open]:rounded-b-none duration-200 ease-in-out",
-          className
+          "focus-visible:border-ring focus-visible:ring-ring/50 bg-brand-primary/10 border-brand-primary/10 flex flex-1 items-start justify-between gap-4 rounded-md border-2 p-4 px-6 py-4 text-left text-sm font-medium transition-all duration-200 ease-in-out outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 data-[state=open]:rounded-b-none [&[data-state=open]>svg]:rotate-180",
+          className,
         )}
         {...props}
       >
         {children}
-        <ChevronDownIcon className="text-primary pointer-events-none size-4 shrink-0 translate-y-0.5 align-middle self-center transition-transform duration-200" />
+        <ChevronDownIcon className="text-primary pointer-events-none size-4 shrink-0 translate-y-0.5 self-center align-middle transition-transform duration-200" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
@@ -42,7 +42,7 @@ function AccordionContent({ className, children, ...props }) {
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden bg-[#55C7F1]/7 p-4 px-6 rounded-b-md"
+      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down bg-brand-primary/7 overflow-hidden rounded-b-md p-4 px-6"
       {...props}
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>

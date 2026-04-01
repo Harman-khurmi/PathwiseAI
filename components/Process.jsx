@@ -15,7 +15,7 @@ const Process = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="z-1 px-6 md:px- 12 lg:px-24 mt-0 mb-12 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center bg-[#55C7F1]/8 border-y-3 border-[#55C7F1]/10 backdrop-blur-md gap-12 relative"
+          className="md:px-12 bg-brand-primary/8 border-brand-primary/10 relative z-1 mt-0 mb-12 flex flex-col items-center justify-center gap-12 border-y-3 px-6 py-8 backdrop-blur-md md:my-20 md:py-12 lg:my-28 lg:px-24 lg:py-16"
         >
           {/* gradient circle */}
           <motion.span
@@ -39,7 +39,7 @@ const Process = () => {
             gradientText="powered by AI"
           />
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start justify-center gap-6 px-4 md:px-12 lg:px-24">
+          <motion.div className="grid grid-cols-1 items-start justify-center gap-6 px-4 md:grid-cols-2 md:px-12 lg:grid-cols-4 lg:px-24">
             {howItWorks.map((item, index) => (
               <ProcessCard
                 key={index}

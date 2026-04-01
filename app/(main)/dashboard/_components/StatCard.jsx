@@ -14,7 +14,7 @@ const StatCard = ({ stat, index }) => {
       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
     >
-      <Card className="group h-full cursor-default overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.011] hover:border-[#55C7F1]/25">
+      <Card className="group border-brand-primary/10 bg-brand-primary/5 hover:border-brand-primary/25 h-full cursor-default overflow-hidden rounded-xl border-3 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.011]">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-muted-foreground text-xs font-black tracking-widest uppercase transition-colors">
             {stat.title}
@@ -30,12 +30,14 @@ const StatCard = ({ stat, index }) => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-foreground mb-1 text-2xl font-black">{stat.value}</div>
+          <div className="text-foreground mb-1 text-2xl font-black">
+            {stat.value}
+          </div>
           {stat.progress !== undefined ? (
             <div className="mt-2 space-y-2">
               <Progress
                 value={stat.progress}
-                className="h-1.5 bg-[#55C7F1]/10 [&>div]:bg-[#55C7F1]"
+                className="bg-brand-primary/10 [&>div]:bg-brand-primary h-1.5"
               />
               <p className="text-muted-foreground mt-2 flex items-center gap-2 text-xs font-bold">
                 <TrendingUp size={14} className="text-green-500" />
@@ -49,15 +51,17 @@ const StatCard = ({ stat, index }) => {
                   key={skill}
                   variant="secondary"
                   title={skill}
-                  className="relative inline-flex max-w-full items-center overflow-hidden border border-[#55C7F1]/20 bg-[#55C7F1]/10 px-2 py-0.5 text-xs font-semibold text-[#55C7F1]"
+                  className="border-brand-primary/20 bg-brand-primary/10 text-brand-primary relative inline-flex max-w-full items-center overflow-hidden border px-2 py-0.5 text-xs font-semibold"
                 >
-                  <span className="overflow-hidden whitespace-nowrap">{skill}</span>
+                  <span className="overflow-hidden whitespace-nowrap">
+                    {skill}
+                  </span>
                 </Badge>
               )) ?? []}
             </div>
           ) : (
             <p className="text-muted-foreground mt-1 flex items-center gap-1.5 text-xs font-medium">
-              <Clock className="h-3 w-3 text-[#55C7F1]/70" />
+              <Clock className="text-brand-primary/70 h-3 w-3" />
               {stat.description}
             </p>
           )}

@@ -46,20 +46,20 @@ const MobileNavbar = forwardRef(
           <SignedOut>
             {isHomePage &&
               navItems.map((item, index) => (
-                <motion.a
-                  key={index}
-                  href={item.link}
-                  variants={itemVariants}
-                  onClick={() => handleItemClick(item.name)}
-                  className={`
+              <motion.a
+                key={index}
+                href={item.link}
+                variants={itemVariants}
+                onClick={() => handleItemClick(item.name)}
+                className={`
               text-lg font-medium text-center transition-all duration-200 py-2 rounded-md
               ${
                 activeItem === item.name
-                  ? "bg-[#3C71FA]/10 text-[#3C71FA] dark:text-[#3C71FA]"
-                  : "text-[#080D1A] dark:text-white hover:text-[#3C71FA] dark:hover:text-[#3C71FA]"
+                  ? "bg-brand-secondary/10 text-brand-secondary dark:text-brand-secondary"
+                  : "text-brand-dark-alt dark:text-white hover:text-brand-secondary dark:hover:text-brand-secondary"
               }
             `}
-                >
+              >
                   {item.name}
                 </motion.a>
               ))}

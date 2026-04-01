@@ -14,7 +14,7 @@ const CtaSection = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
-        className="z-1 px-6 md:px-12 lg:px-24 mt-0 mb-12 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center bg-[#55C7F1]/8 border-y-3 border-[#55C7F1]/10 backdrop-blur-md gap-8 relative"
+        className="bg-brand-primary/8 border-brand-primary/10 relative z-1 mt-0 mb-12 flex flex-col items-center justify-center gap-8 border-y-3 px-6 py-8 backdrop-blur-md md:my-20 md:px-12 md:py-12 lg:my-28 lg:px-24 lg:py-16"
       >
         {/* gradient circle */}
         <motion.span
@@ -43,7 +43,7 @@ const CtaSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-text-dark/80 dark:text-text-light/80 text-center w-2/3"
+            className="text-text-dark/80 dark:text-text-light/80 w-2/3 text-center"
           >
             Join thousands of professionals who are moving forward with clarity,
             confidence, and direction.

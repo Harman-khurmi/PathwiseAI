@@ -9,11 +9,11 @@ import Link from "next/link";
 export default function Error({ error, reset }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error("Dashboard Error:", error);
+    console.error("Interview Error:", error);
   }, [error]);
 
   return (
-    <div className="flex min-h-[70vh] items-center justify-center px-4">
+    <div className="flex min-h-[70vh] mt-3 md:mt-6 lg:mt-10 items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.95, filter: "blur(4px)" }}
         animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -41,7 +41,7 @@ export default function Error({ error, reset }) {
                 </span>
               </h1>
               <p className="text-muted-foreground px-2 text-sm font-medium md:text-base">
-                We encountered an error while loading your industry insights.
+                We encountered an error while loading your interview data.
                 This might be a temporary connection issue.
               </p>
             </div>
@@ -65,7 +65,7 @@ export default function Error({ error, reset }) {
             </div>
 
             <p className="text-muted-foreground/50 pt-4 text-[10px] font-semibold tracking-widest uppercase">
-              Error logged and being reviewed by our team
+              Error logged. Please refresh or contact support
             </p>
           </div>
         </div>

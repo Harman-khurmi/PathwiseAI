@@ -22,21 +22,20 @@ import {
   X,
 } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+// Removed DropdownMenu imports
 import { motion, AnimatePresence, easeInOut } from "motion/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const HeaderClient = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isGrowthToolsOpen, setIsGrowthToolsOpen] = useState(false);
   const headerRef = useRef(null);
   const mobileNavRef = useRef(null);
   const toggleBtnRef = useRef(null);
+  const growthToolsRef = useRef(null);
+  const triggerRef = useRef(null);
+  const firstItemRef = useRef(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -68,13 +67,46 @@ const HeaderClient = () => {
       ) {
         setIsMenuOpen(false);
       }
+      
+      if (
+        isGrowthToolsOpen &&
+        growthToolsRef.current &&
+        !growthToolsRef.current.contains(event.target)
+      ) {
+        setIsGrowthToolsOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isGrowthToolsOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isGrowthToolsOpen) {
+        setIsGrowthToolsOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isGrowthToolsOpen]);
+
+  const prevGrowthToolsOpen = useRef(isGrowthToolsOpen);
+  useEffect(() => {
+    if (isGrowthToolsOpen) {
+      const timer = setTimeout(() => {
+        firstItemRef.current?.focus();
+      }, 50);
+      prevGrowthToolsOpen.current = true;
+      return () => clearTimeout(timer);
+    } else if (prevGrowthToolsOpen.current) {
+      triggerRef.current?.focus();
+      prevGrowthToolsOpen.current = false;
+    }
+  }, [isGrowthToolsOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -187,44 +219,69 @@ const HeaderClient = () => {
             {/* signed in nav items */}
             <div className="hidden lg:flex items-center gap-4">
               <SignedIn>
-                <DropdownMenu modal={false}>
-                  <DropdownMenuTrigger asChild>
-                    <Button size="responsive" variant="outline" className="hidden md:flex gap-2">
-                      <Sparkles className="h-4 w-4" />
-                      Growth Tools
+                <div className="relative" ref={growthToolsRef}>
+                  <Button 
+                    ref={triggerRef}
+                    size="responsive" 
+                    variant="outline" 
+                    className="hidden md:flex gap-2"
+                    onClick={() => setIsGrowthToolsOpen(!isGrowthToolsOpen)}
+                    aria-expanded={isGrowthToolsOpen}
+                    aria-haspopup="menu"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    Growth Tools
+                    <motion.div
+                      animate={{ rotate: isGrowthToolsOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <ChevronDown className="h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem asChild>
-                      <Link
-                        href={"/resume"}
-                        className="flex gap-2 items-center"
+                    </motion.div>
+                  </Button>
+
+                  <AnimatePresence>
+                    {isGrowthToolsOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10, scaleY: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                        exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                        style={{ originY: 0 }}
+                        className="absolute top-full right-0 mt-3 w-[200px] overflow-hidden rounded-xl bg-brand-light/70 dark:bg-brand-dark-alt/70 backdrop-blur-3xl border border-white/20 dark:border-white/10 shadow-lg dark:shadow-black/50 z-50 flex flex-col p-2"
+                        role="menu"
                       >
-                        <FileUser className="h-4 w-4" />
-                        Resume Builder
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link
-                        href={"/cover-letter"}
-                        className="flex gap-2 items-center"
-                      >
-                        <Newspaper className="h-4 w-4" />
-                        Cover Letter
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link
-                        href={"/interview"}
-                        className="flex gap-2 items-center"
-                      >
-                        <GraduationCap className="h-4 w-4" />
-                        Interview Prep
-                      </Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                        <Link
+                          href="/resume"
+                          ref={firstItemRef}
+                          role="menuitem"
+                          onClick={() => setIsGrowthToolsOpen(false)}
+                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors backdrop-blur-3xl"
+                        >
+                          <FileUser className="h-4 w-4" />
+                          Resume Builder
+                        </Link>
+                        <Link
+                          href="/cover-letter"
+                          role="menuitem"
+                          onClick={() => setIsGrowthToolsOpen(false)}
+                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors backdrop-blur-3xl"
+                        >
+                          <Newspaper className="h-4 w-4" />
+                          Cover Letter
+                        </Link>
+                        <Link
+                          href="/interview"
+                          role="menuitem"
+                          onClick={() => setIsGrowthToolsOpen(false)}
+                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors backdrop-blur-3xl"
+                        >
+                          <GraduationCap className="h-4 w-4" />
+                          Interview Prep
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <Link href={"/dashboard"}>
                   <Button

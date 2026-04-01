@@ -10,6 +10,7 @@ import { dark } from "@clerk/themes";
 import { Toaster } from "@/components/ui/sonner";
 import ScrollToTop from "@/components/ScrollToTop";
 import InDevelopment from "@/components/in-development";
+import { Analytics } from "@vercel/analytics/next"
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
             <div className="min-h-screen overflow-x-clip">{children}</div>
             {/* footer component*/}
           </ThemeProvider>
+          <Analytics/>
         </body>
       </html>
     </ClerkProvider>

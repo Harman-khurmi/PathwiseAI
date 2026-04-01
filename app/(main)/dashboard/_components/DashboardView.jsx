@@ -198,9 +198,9 @@ const DashboardView = ({ insights, firstName }) => {
               </h2>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <span className="shadow-primary/25 hover:shadow-primary/55 w-fit cursor-default self-center rounded-full bg-[#3C71FA]/5 px-4 py-1.5 font-semibold shadow-inner transition-shadow duration-400 ease-in md:self-start md:py-2">
+                <span className="shadow-brand-primary/25 hover:shadow-brand-primary/55 w-fit cursor-default self-center rounded-full bg-brand-primary/5 px-4 py-1.5 font-semibold shadow-inner transition-shadow duration-400 ease-in md:self-start md:py-2">
                 <p className="flex items-center gap-2 text-xs lg:px-2 lg:text-sm">
-                  <Clock className="h-4 w-4 text-[#55C7F1] transition-colors duration-400 ease-in-out" />
+                  <Clock className="h-4 w-4 text-brand-primary transition-colors duration-400 ease-in-out" />
                   Fresh Date :{" "}
                   {isMounted ? format(new Date(insights.createdAt), "dd MMM, yyyy") : "..."}
                 </p>
@@ -228,7 +228,7 @@ const DashboardView = ({ insights, firstName }) => {
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Card className="group h-full overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 hover:scale-[1.004] hover:border-[#55C7F1]/25">
+              <Card className="group h-full overflow-hidden rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 shadow-none transition-all duration-400 hover:scale-[1.004] hover:border-brand-primary/25">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-xl font-black md:text-2xl">
                     Key Industry Trends
@@ -246,7 +246,7 @@ const DashboardView = ({ insights, firstName }) => {
                         </span>
                         <Progress
                           value={85 - index * 10}
-                          className="h-2 rounded-full bg-[#55C7F1]/10 [&>div]:bg-[#55C7F1]"
+                          className="h-2 rounded-full bg-brand-primary/10 [&>div]:bg-brand-primary"
                         />
                       </li>
                     ))}
@@ -260,7 +260,7 @@ const DashboardView = ({ insights, firstName }) => {
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Card className="group h-full overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.004] hover:border-[#55C7F1]/25">
+              <Card className="group h-full overflow-hidden rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.004] hover:border-brand-primary/25">
                 <CardHeader className="pb-6">
                   <CardTitle className="text-xl font-black md:text-2xl">
                     Recommended Skills
@@ -275,7 +275,7 @@ const DashboardView = ({ insights, firstName }) => {
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="bg-primary/20 hover:bg-primary/30 h-auto w-fit rounded-lg border-2 border-[#55C7F1]/10 p-1.5 px-2.5 text-left text-xs leading-relaxed font-bold tracking-tight whitespace-normal opacity-90 transition-all duration-300 ease-in hover:opacity-100  md:py-1.5 md:px-3 md:text-sm"
+                        className="bg-primary/20 hover:bg-primary/30 h-auto w-fit rounded-lg border-2 border-brand-primary/10 p-1.5 px-2.5 text-left text-xs leading-relaxed font-bold tracking-tight whitespace-normal opacity-90 transition-all duration-300 ease-in hover:opacity-100  md:py-1.5 md:px-3 md:text-sm"
                       >
                         {skill}
                       </Badge>

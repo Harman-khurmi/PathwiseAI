@@ -34,7 +34,7 @@ const formatIndustry = (industry, sub) =>
   `${industry}-${sub.toLowerCase().replace(/\s+/g, "-")}`;
 
 const inputStyles =
-  "border-2 border-[#55C7F1]/10 bg-[#55C7F1]/5 hover:bg-[#55C7F1]/10 hover:border-[#55C7F1]/25 focus:border-[#55C7F1]/50! focus-visible:border-[#55C7F1]/50! focus-visible:ring-[#55C7F1]/30! focus-visible:ring-[3px]! transition-all duration-400 outline-none";
+  "border-2 border-brand-primary/10 bg-brand-primary/5 hover:bg-brand-primary/10 hover:border-brand-primary/25 focus:border-brand-primary/50! focus-visible:border-brand-primary/50! focus-visible:ring-brand-primary/30! focus-visible:ring-[3px]! transition-all duration-400 outline-none";
 
 const fadeIn = {
   hidden: { opacity: 0, scale: 0.98, filter: "blur(4px)" },
@@ -86,15 +86,15 @@ const OnboardingForm = ({ industries }) => {
         const skillsArray = Array.isArray(values.skills)
           ? values.skills
           : typeof values.skills === "string"
-          ? values.skills
-              .split(",")
-              .map((s) => s.trim())
-              .filter(Boolean)
-          : [];
+            ? values.skills
+                .split(",")
+                .map((s) => s.trim())
+                .filter(Boolean)
+            : [];
 
         const formattedIndustry = formatIndustry(
           values.industry,
-          values.subIndustry
+          values.subIndustry,
         );
 
         await updateUserFunction({
@@ -107,7 +107,7 @@ const OnboardingForm = ({ industries }) => {
         toast.error("Something went wrong. Please try again.");
       }
     },
-    [updateUserFunction, updateLoading]
+    [updateUserFunction, updateLoading],
   );
 
   useEffect(() => {
@@ -119,7 +119,7 @@ const OnboardingForm = ({ industries }) => {
   }, [updateResult, updateLoading, router]);
 
   return (
-    <div className="flex items-center justify-center px-4 pt-3 pb-6 min-h-[80vh] md:py-6 lg:py-8">
+    <div className="flex min-h-[80vh] items-center justify-center px-4 pt-3 pb-6 md:py-6 lg:py-8">
       <motion.div
         variants={fadeIn}
         initial="hidden"
@@ -127,16 +127,16 @@ const OnboardingForm = ({ industries }) => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-3xl"
       >
-        <Card className="relative overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-primary/5 shadow-none transition-all duration-400 ease-in hover:border-[#55C7F1]/25 hover:bg-primary/6">
+        <Card className="border-brand-primary/10 bg-primary/5 hover:border-brand-primary/25 hover:bg-primary/6 relative overflow-hidden rounded-xl border-3 shadow-none transition-all duration-400 ease-in">
           <div className="pointer-events-none absolute -top-4 right-4 py-8 opacity-[0.05] md:top-0 md:right-0 md:p-8">
-            <Sparkles size={160} className="size-20 text-primary md:size-32" />
+            <Sparkles size={160} className="text-primary size-20 md:size-32" />
           </div>
 
           <CardHeader className="p-4 pb-0 md:p-8">
             <CardTitle className="mb-1 text-3xl font-black md:mb-2 md:text-4xl lg:text-5xl">
               Complete your <span className="gradient-title">Profile</span>
             </CardTitle>
-            <CardDescription className="text-sm font-medium leading-relaxed md:max-w-lg md:text-base lg:text-lg">
+            <CardDescription className="text-sm leading-relaxed font-medium md:max-w-lg md:text-base lg:text-lg">
               Select your industry to get personalized career insights and
               AI-driven growth recommendations.
             </CardDescription>
@@ -197,17 +197,17 @@ const IndustryField = ({ control, industries, errors, setValue }) => (
             aria-describedby="industry-error"
             className={cn(
               "h-14 w-full cursor-pointer rounded-lg px-3 py-6 text-sm font-semibold md:px-6 md:text-base",
-              inputStyles
+              inputStyles,
             )}
           >
             <SelectValue placeholder="Select an Industry" />
           </SelectTrigger>
-          <SelectContent className="bg-background/95 rounded-lg border-2 border-[#55C7F1]/20 backdrop-blur-xl">
+          <SelectContent className="bg-background/95 border-brand-primary/20 rounded-lg border-2 backdrop-blur-xl">
             {industries?.map((indus) => (
               <SelectItem
                 value={indus.id}
                 key={indus.id}
-                className="focus:bg-[#55C7F1]/10 focus:text-primary my-1.5 cursor-pointer rounded-lg font-semibold transition-colors"
+                className="focus:bg-brand-primary/10 focus:text-primary my-1.5 cursor-pointer rounded-lg font-semibold transition-colors"
               >
                 {indus.name}
               </SelectItem>
@@ -266,17 +266,17 @@ const SubIndustryField = ({
                   aria-describedby="subIndustry-error"
                   className={cn(
                     "h-14 w-full cursor-pointer rounded-lg px-3 py-6 text-sm font-semibold md:px-6 md:text-base",
-                    inputStyles
+                    inputStyles,
                   )}
                 >
                   <SelectValue placeholder="Field / Role" />
                 </SelectTrigger>
-                <SelectContent className="bg-background/95 rounded-xl border-2 border-[#55C7F1]/20 backdrop-blur-xl">
+                <SelectContent className="bg-background/95 border-brand-primary/20 rounded-xl border-2 backdrop-blur-xl">
                   {selectedIndustry?.subIndustries?.map((indus) => (
                     <SelectItem
                       value={indus}
                       key={indus}
-                      className="focus:bg-[#55C7F1]/10 focus:text-primary my-1.5 cursor-pointer rounded-lg font-semibold transition-colors"
+                      className="focus:bg-brand-primary/10 focus:text-primary my-1.5 cursor-pointer rounded-lg font-semibold transition-colors"
                     >
                       {indus}
                     </SelectItem>
@@ -302,9 +302,9 @@ const SubIndustryField = ({
           initial={{ opacity: 0, filter: "blur(4px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           exit={{ opacity: 0, filter: "blur(4px)" }}
-          className="bg-[#55C7F1]/5 border-[#55C7F1]/20 mt-2 flex h-18 w-full items-center justify-center rounded-lg border-2 border-dashed p-3 opacity-70 md:p-6"
+          className="bg-brand-primary/5 border-brand-primary/20 mt-2 flex h-18 w-full items-center justify-center rounded-lg border-2 border-dashed p-3 opacity-70 md:p-6"
         >
-          <p className="text-muted-foreground text-center text-xs font-bold leading-relaxed tracking-widest uppercase md:text-sm">
+          <p className="text-muted-foreground text-center text-xs leading-relaxed font-bold tracking-widest uppercase md:text-sm">
             Select Industry to show sub-fields
           </p>
         </motion.div>
@@ -330,13 +330,13 @@ const ExperienceField = ({ register, errors }) => (
         aria-invalid={!!errors.experience}
         aria-describedby="experience-error"
         className={cn(
-          "h-14 w-full rounded-lg px-3 py-4 text-sm font-medium pr-12 md:py-5 md:pl-6 md:text-base lg:py-6 lg:text-lg",
-          inputStyles
+          "h-14 w-full rounded-lg px-3 py-4 pr-12 text-sm font-medium md:py-5 md:pl-6 md:text-base lg:py-6 lg:text-lg",
+          inputStyles,
         )}
         placeholder="Enter years of experience"
         {...register("experience")}
       />
-      <div className="text-muted-foreground group-focus-within:opacity-100 absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none text-xs font-black tracking-widest uppercase opacity-50 transition-opacity md:right-6">
+      <div className="text-muted-foreground pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-xs font-black tracking-widest uppercase opacity-50 transition-opacity group-focus-within:opacity-100 md:right-6">
         YEARS
       </div>
     </div>
@@ -371,8 +371,8 @@ const SkillsField = ({ register, errors }) => (
         aria-invalid={!!errors.skills}
         aria-describedby="skills-error"
         className={cn(
-          "h-14 w-full rounded-lg px-3 py-4 text-sm font-medium transition-all pr-12 duration-300 md:py-5 md:pl-6 md:text-base lg:py-6 lg:text-lg",
-          inputStyles
+          "h-14 w-full rounded-lg px-3 py-4 pr-12 text-sm font-medium transition-all duration-300 md:py-5 md:pl-6 md:text-base lg:py-6 lg:text-lg",
+          inputStyles,
         )}
         placeholder="e.g: JavaScript, React, System Design..."
         {...register("skills")}
@@ -405,15 +405,18 @@ const BioField = ({ register, errors }) => (
       aria-invalid={!!errors.bio}
       aria-describedby="bio-error"
       className={cn(
-        "min-h-33 w-full rounded-xl p-3 text-sm font-medium leading-relaxed md:p-6 md:text-base lg:text-lg",
-        inputStyles
+        "min-h-33 w-full rounded-xl p-3 text-sm leading-relaxed font-medium md:p-6 md:text-base lg:text-lg",
+        inputStyles,
       )}
       placeholder="Tell us about your career journey, milestones, and professional impact..."
       {...register("bio")}
     />
     <div className="min-h-[16px]">
       {errors.bio && (
-        <p id="bio-error" className="animate-pulse text-xs font-bold text-red-500">
+        <p
+          id="bio-error"
+          className="animate-pulse text-xs font-bold text-red-500"
+        >
           {errors.bio.message}
         </p>
       )}
@@ -426,10 +429,10 @@ const SubmitButton = ({ updateLoading }) => (
     type="submit"
     size="responsive"
     disabled={updateLoading}
-    className="group bg-linear-to-b hover:from-[#39BDEE] hover:to-[#1D58F0] hover:shadow-[#1D58F0]/20 relative w-full overflow-hidden py-5 text-sm font-semibold text-white transition-all duration-300 ease-out from-[#55C7F1] to-[#3C71FA] hover:shadow-lg md:py-6 md:text-lg lg:py-7 lg:text-xl"
+    className="group from-brand-primary relative w-full overflow-hidden bg-linear-to-b to-brand-secondary py-5 text-sm font-semibold text-white transition-all duration-300 ease-out hover:from-brand-hover hover:to-brand-active hover:shadow-lg hover:shadow-brand-active/20 md:py-6 md:text-lg lg:py-7 lg:text-xl"
   >
     {/* Glass reflection sweep */}
-    <span className="bg-linear-to-r transition-transform duration-900 group-hover:translate-x-full pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] ease-out from-transparent via-white/30 to-transparent" />
+    <span className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-linear-to-r from-transparent via-white/30 to-transparent transition-transform duration-900 ease-out group-hover:translate-x-full" />
 
     {/* Content */}
     <span className="relative z-10 flex items-center justify-center">
@@ -444,7 +447,7 @@ const SubmitButton = ({ updateLoading }) => (
           <ArrowRight
             size={20}
             strokeWidth={3}
-            className="duration-400 group-hover:translate-x-1 ml-3 translate-y-px transition-transform"
+            className="ml-3 translate-y-px transition-transform duration-400 group-hover:translate-x-1"
           />
         </>
       )}
