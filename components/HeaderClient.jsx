@@ -34,6 +34,8 @@ const HeaderClient = () => {
   const mobileNavRef = useRef(null);
   const toggleBtnRef = useRef(null);
   const growthToolsRef = useRef(null);
+  const triggerRef = useRef(null);
+  const firstItemRef = useRef(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -79,7 +81,32 @@ const HeaderClient = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isGrowthToolsOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isGrowthToolsOpen) {
+        setIsGrowthToolsOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isGrowthToolsOpen]);
+
+  const prevGrowthToolsOpen = useRef(isGrowthToolsOpen);
+  useEffect(() => {
+    if (isGrowthToolsOpen) {
+      const timer = setTimeout(() => {
+        firstItemRef.current?.focus();
+      }, 50);
+      prevGrowthToolsOpen.current = true;
+      return () => clearTimeout(timer);
+    } else if (prevGrowthToolsOpen.current) {
+      triggerRef.current?.focus();
+      prevGrowthToolsOpen.current = false;
+    }
+  }, [isGrowthToolsOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -194,10 +221,13 @@ const HeaderClient = () => {
               <SignedIn>
                 <div className="relative" ref={growthToolsRef}>
                   <Button 
+                    ref={triggerRef}
                     size="responsive" 
                     variant="outline" 
                     className="hidden md:flex gap-2"
                     onClick={() => setIsGrowthToolsOpen(!isGrowthToolsOpen)}
+                    aria-expanded={isGrowthToolsOpen}
+                    aria-haspopup="menu"
                   >
                     <Sparkles className="h-4 w-4" />
                     Growth Tools
@@ -217,28 +247,33 @@ const HeaderClient = () => {
                         exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                         style={{ originY: 0 }}
-                        className="absolute top-full right-0 mt-3 w-[200px] overflow-hidden rounded-xl bg-white/70 dark:bg-neutral-900/50 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-lg dark:shadow-black/50 z-50 flex flex-col p-2"
+                        className="absolute top-full right-0 mt-3 w-[200px] overflow-hidden rounded-xl bg-brand-light/70 dark:bg-brand-dark-alt/70 backdrop-blur-3xl border border-white/20 dark:border-white/10 shadow-lg dark:shadow-black/50 z-50 flex flex-col p-2"
+                        role="menu"
                       >
                         <Link
                           href="/resume"
+                          ref={firstItemRef}
+                          role="menuitem"
                           onClick={() => setIsGrowthToolsOpen(false)}
-                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors backdrop-blur-3xl"
                         >
                           <FileUser className="h-4 w-4" />
                           Resume Builder
                         </Link>
                         <Link
                           href="/cover-letter"
+                          role="menuitem"
                           onClick={() => setIsGrowthToolsOpen(false)}
-                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors backdrop-blur-3xl"
                         >
                           <Newspaper className="h-4 w-4" />
                           Cover Letter
                         </Link>
                         <Link
                           href="/interview"
+                          role="menuitem"
                           onClick={() => setIsGrowthToolsOpen(false)}
-                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                          className="flex gap-3 items-center px-4 py-3 text-sm font-medium rounded-md hover:bg-black/5 dark:hover:bg-white/10 transition-colors backdrop-blur-3xl"
                         >
                           <GraduationCap className="h-4 w-4" />
                           Interview Prep

@@ -13,7 +13,7 @@ const TrustedBy = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="z-1 px-6 md:px-12 lg:px-24 mt-0 mb-12 md:my-20 lg:my-28 py-8 md:py-12 lg:py-16 flex flex-col items-center justify-center bg-[#55C7F1]/8 border-y-3 border-[#55C7F1]/10 backdrop-blur-md gap-12 relative"
+          className="bg-brand-primary/8 border-brand-primary/10 relative z-1 mt-0 mb-12 flex flex-col items-center justify-center gap-12 border-y-3 px-6 py-8 backdrop-blur-md md:my-20 md:px-12 md:py-12 lg:my-28 lg:px-24 lg:py-16"
         >
           {/* gradient circle */}
           <motion.span
@@ -34,7 +34,7 @@ const TrustedBy = () => {
           </motion.span>
 
           {/* title */}
-          <div className="flex items-start md:items-center justify-center gap-2">
+          <div className="flex items-start justify-center gap-2 md:items-center">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const TrustedBy = () => {
                 alt="sparkle"
                 width={20}
                 height={20}
-                className="mt-1 md:mt-0 dark:block hidden"
+                className="mt-1 hidden md:mt-0 dark:block"
               ></Image>
             </motion.span>
             <motion.h3
@@ -61,10 +61,10 @@ const TrustedBy = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
-              className="font-semibold text-lg md:text-xl text-center w-2/3 md:w-full"
+              className="w-2/3 text-center text-lg font-semibold md:w-full md:text-xl"
             >
               Why professionals trust{" "}
-              <span className="gradient-primary text-transparent bg-clip-text">
+              <span className="gradient-primary bg-clip-text text-transparent">
                 PathwiseAI
               </span>
             </motion.h3>
@@ -86,7 +86,7 @@ const TrustedBy = () => {
                 alt="sparkle"
                 width={20}
                 height={20}
-                className="mt-1 md:mt-0 dark:block hidden"
+                className="mt-1 hidden md:mt-0 dark:block"
               ></Image>
             </motion.span>
           </div>
@@ -96,7 +96,7 @@ const TrustedBy = () => {
             whileInView="visible"
             transition={{ staggerChildren: 0.1, delay: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 items-center text-center"
+            className="grid grid-cols-2 items-center gap-6 text-center md:grid-cols-3 md:gap-8 lg:grid-cols-5"
           >
             {whyTrustUs.map((item, index) => {
               return (
@@ -108,10 +108,10 @@ const TrustedBy = () => {
                   key={index}
                   className="flex flex-col items-center gap-1 md:gap-2"
                 >
-                  <motion.h3 className="text-2xl md:text-3xl lg:text-4xl gradient-primary text-transparent bg-clip-text font-extrabold font-inter">
+                  <motion.h3 className="gradient-primary font-inter bg-clip-text text-2xl font-extrabold text-transparent md:text-3xl lg:text-4xl">
                     {item.count}
                   </motion.h3>
-                  <motion.p className="font-semibold w-full md:w-4/5 text-center">
+                  <motion.p className="w-full text-center font-semibold md:w-4/5">
                     {item.description}
                   </motion.p>
                 </motion.div>

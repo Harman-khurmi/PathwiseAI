@@ -37,7 +37,7 @@ export default function PerformanceChart({ assessments }) {
   }, [assessments, isMounted]);
 
   return (
-    <Card className="group h-full shadow-none overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 transition-all duration-400 hover:scale-[1.004] hover:border-[#55C7F1]/25 w-full">
+    <Card className="group h-full shadow-none overflow-hidden rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 transition-all duration-400 hover:scale-[1.004] hover:border-brand-primary/25 w-full">
       <CardHeader className="pb-4">
         <CardTitle className="text-xl font-black md:text-2xl">
           Performance Trend
@@ -101,16 +101,16 @@ export default function PerformanceChart({ assessments }) {
                   content={({ active, payload }) => {
                     if (active && payload?.length) {
                       return (
-                        <div className="bg-background/80 min-w-[150px] rounded-2xl border-3 border-[#55C7F1]/30 p-4 shadow-2xl backdrop-blur-xl">
-                          <p className="mb-2 border-b-2 border-[#55C7F1]/20 pb-1 text-sm font-black">
+                        <div className="bg-background/80 min-w-[150px] rounded-2xl border-3 border-brand-primary/30 p-4 shadow-2xl backdrop-blur-xl">
+                          <p className="mb-2 border-b-2 border-brand-primary/20 pb-1 text-sm font-black">
                             {payload[0].payload.date}
                           </p>
                           <div className="flex items-center justify-between gap-4 text-xs font-bold">
                             <span className="text-muted-foreground/80">
                               Score:
                             </span>
-                            <span className="text-[#55C7F1] text-base">
-                              {payload[0].value.toFixed(1)}%
+                            <span className="text-brand-primary text-base">
+                              {payload[0]?.value != null ? `${Number(payload[0].value).toFixed(1)}%` : "—"}
                             </span>
                           </div>
                         </div>
@@ -136,7 +136,7 @@ export default function PerformanceChart({ assessments }) {
               </LineChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex flex-col items-center justify-center h-full text-center space-y-4 rounded-xl border-2 border-dashed border-[#55C7F1]/20 bg-background/40 p-6">
+            <div className="flex flex-col items-center justify-center h-full text-center space-y-4 rounded-xl border-2 border-dashed border-brand-primary/20 bg-background/40 p-6">
               <p className="text-muted-foreground/80 font-medium text-sm md:text-base">
                 No performance data available yet.
               </p>

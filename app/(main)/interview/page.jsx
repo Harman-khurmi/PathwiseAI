@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function InterviewPrepPage() {
+  //to test error page for interview page
+  // throw new Error("Testing interview error page"); 
   const [assessments, setAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -56,7 +58,7 @@ export default function InterviewPrepPage() {
         initial={{ opacity: 0, y: 40, filter: "blur(4px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col items-start rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 p-6 md:p-8 lg:p-10 gap-8 w-full hover:border-brand-primary/25 transition-all duration-800 ease-in-out shadow-inner shadow-primary/0 hover:shadow-primary/20"
+        className="flex flex-col items-start rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 p-6 md:p-8 lg:p-10 gap-8 w-full hover:border-brand-primary/25 transition-all duration-700 ease-in-out shadow-inner shadow-primary/0 hover:shadow-primary/20"
       >
         <div className="w-full space-y-8">
           {/* Header Section */}

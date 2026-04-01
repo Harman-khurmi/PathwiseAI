@@ -62,7 +62,7 @@ export default function StatsCards({ assessments }) {
            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
            transition={{ duration: 0.4, delay: index * 0.1 }}
         >
-          <Card className="group h-full cursor-default overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.011] hover:border-[#55C7F1]/25">
+          <Card className="group h-full cursor-default overflow-hidden rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.011] hover:border-brand-primary/25">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-muted-foreground text-xs font-black tracking-widest uppercase transition-colors">
                 {stat.title}
@@ -79,7 +79,7 @@ export default function StatsCards({ assessments }) {
             <CardContent>
               <div className="text-foreground mb-1 text-2xl font-black">{stat.value}</div>
               <p className="text-muted-foreground mt-1 flex items-center gap-1.5 text-xs font-medium">
-                <Clock className="h-3 w-3 text-[#55C7F1]/70" />
+                <Clock className="h-3 w-3 text-brand-primary/70" />
                 {stat.description}
               </p>
             </CardContent>

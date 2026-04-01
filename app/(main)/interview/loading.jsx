@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
   return (
     <div className="py-6 md:py-8">
-      <Skeleton className="flex flex-col items-start rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 p-6 md:p-8 lg:p-10 gap-8 w-full animate-pulse">
+      <Skeleton className="flex flex-col items-start rounded-xl border-3 border-brand-primary/10 bg-brand-primary/5 p-6 md:p-8 lg:p-10 gap-8 w-full animate-pulse">
         <div className="w-full space-y-8">
           <div className="flex flex-col items-start md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-3">

@@ -73,7 +73,7 @@ export default function QuizList({ assessments }) {
                   <div className="flex items-center gap-4 md:gap-6 ">
                     <div
                       className={cn(  
-                        "h-12 w-12 md:h-14 md:w-14 rounded-lg flex items-center justify-center shrink-0 transition-transform group-hover/quiz:scale-110 shadow-none duration-400 ease-in-out",
+                        "h-11 w-11 md:h-14 md:w-14 rounded-lg flex items-center justify-center shrink-0 transition-transform group-hover/quiz:scale-110 shadow-none duration-400 ease-in-out",
                         assessment.quizScore >= 80
                           ? "bg-green-500/15 text-green-600 border border-green-500/20"
                           : assessment.quizScore >= 50
@@ -81,13 +81,13 @@ export default function QuizList({ assessments }) {
                             : "bg-red-500/15 text-red-600 border border-red-500/20",
                       )}
                     >
-                      <Trophy className="h-6 w-6 md:h-7 md:w-7" />
+                      <Trophy className="h-5 w-5 md:h-7 md:w-7" />
                     </div>
                     <div>
-                      <h3 className="text-lg md:text-xl font-black mb-1.5 text-text-dark/90 dark:text-text-light/90 group-hover/quiz:text-primary dark:group-hover/quiz:text-primary transition-colors duration-400 ease-in-out">
+                      <h3 className="text-base md:text-lg lg:text-xl font-black md:mb-1.5 mb-1 text-text-dark/90 dark:text-text-light/90 group-hover/quiz:text-primary dark:group-hover/quiz:text-primary transition-colors duration-400 ease-in-out">
                         Quiz #{assessments.length - i}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-y-2 gap-x-2 md:gap-x-4 text-xs md:text-sm text-muted-foreground font-semibold">
+                      <div className="flex flex-wrap items-center gap-y-2 gap-x-2 md:gap-x-4 text-[10px] md:text-sm text-muted-foreground font-semibold">
                         <span className="flex items-center gap-1.5 bg-background/50 px-2.5 py-1 rounded-md shrink-0">
                           <Calendar className="h-3.5 w-3.5 group-hover/icon:text-primary" />
                           {isMounted
@@ -96,7 +96,7 @@ export default function QuizList({ assessments }) {
                         </span>
                         <span
                           className={cn(
-                            "px-3 py-1 rounded-md text-[10px] md:text-xs uppercase tracking-widest font-black shadow-none",
+                            "px-3 py-1 rounded-md text-[8px] text-nowrap md:text-xs uppercase tracking-widest font-black shadow-none",
                             assessment.quizScore >= 80
                               ? "bg-green-500/15 text-green-700 dark:text-green-400"
                               : assessment.quizScore >= 50
@@ -109,8 +109,8 @@ export default function QuizList({ assessments }) {
                       </div>
                     </div>
                   </div>
-                  <div className="p-2 md:p-3 md:rounded-lg transition-all duration-400 ease-in-out group-hover/quiz:bg-primary/10 group-hover/quiz:translate-x-1">
-                    <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-muted-foreground/30 group-hover/quiz:text-primary transition-colors duration-400 ease-in-out" />
+                  <div className="p-2 md:p-3 md:rounded-lg transition-all duration-400 ease-in-out group-hover/quiz:bg-primary/10 group-hover/quiz:translate-x-1 ml-5 md:ml-0">
+                    <ChevronRight className=" h-5 w-5 md:h-6 md:w-6 text-muted-foreground/30 group-hover/quiz:text-primary transition-colors duration-400 ease-in-out" />
                   </div>
                 </div>
               ))}
@@ -157,11 +157,11 @@ export default function QuizList({ assessments }) {
       </Card>
 
       <Dialog open={!!selectedQuiz} onOpenChange={() => setSelectedQuiz(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl border-2 shadow-2xl p-0">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl border-3 border-brand-primary/20 bg-background/95 backdrop-blur-xl shadow-[0_0_80px_-15px_rgba(85,199,241,0.15)] p-0 custom-scrollbar">
           <DialogHeader className="p-0 h-0 overflow-hidden">
             <DialogTitle />
           </DialogHeader>
-          <div className="p-6 md:p-10">
+          <div className="p-6 md:p-10 pb-0">
             <QuizResult
               result={selectedQuiz}
               hideStartNew

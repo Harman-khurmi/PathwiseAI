@@ -232,14 +232,30 @@
   }
 }
 
-/* Hide scrollbar for custom-scrollbar class */
+/* Professional Glass Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(85, 199, 241, 0.3); /* brand-primary 30% */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 199, 241, 0.6);
 }
 
 .custom-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(85, 199, 241, 0.3) transparent;
 }
 
 /* Bulletproof Recharts Focus Ring Removal */

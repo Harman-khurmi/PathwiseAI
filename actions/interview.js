@@ -6,7 +6,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
   // "gemini-3-flash-preview",
-  model: "gemini-2.5-flash",
+  model: "gemini-2.5-flash-lite",
 });
 
 export async function generateQuiz() {
@@ -27,42 +27,45 @@ export async function generateQuiz() {
   }
 
   try {
+    const industry = user.industry || "professional";
     const prompt = `
-    Generate 10 technical interview questions for a ${
-      user.industry
-    } professional${
-      user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
-    }.
+    Generate 10 technical interview questions for a ${industry} professional${user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""}.
     
-    Each question should be multiple choice with 4 options.
+    IMPORTANT RULES:
+    1. Each question must have EXACTLY 4 multiple-choice options.
+    2. EXACTLY 1 option must be correct.
+    3. The correct answer MUST be determinable STRICTLY from the 4 provided options alone.
+    4. DO NOT generate any questions that require analyzing images, external code snippets, or outside context not provided in the question. 
+    5. Order the 10 questions progressively by difficulty: start with Easy questions, move to Medium, and end with Hard questions.
     
-    Return the response in this JSON format only(very strictly), no additional text or out of this format response is to be generated :
+    Return the response strictly as a pure JSON object, with absolutely no markdown formatting (do not wrap in \`\`\`json), no code blocks, and no other text.
+    The format MUST be:
     {
       "questions": [
         {
           "question": "string",
           "options": ["string", "string", "string", "string"],
           "correctAnswer": "string",
-          "explanation": "string"
+          "explanation": "string",
+          "difficulty": "Easy | Medium | Hard"
         }
       ]
     }
-  `;
+    `;
 
     const result = await model.generateContent(prompt);
     const text = result.response.text();
-    const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
+    // Clean potential markdown blocks or hidden whitespace robustly
+    const cleanedText = text.replace(/```json/gi, "").replace(/```/g, "").trim();
 
-    try {
-      const quiz = JSON.parse(cleanedText);
-      return quiz.questions || [];
-    } catch (parseError) {
-      console.error("JSON parsing error:", parseError);
-      throw new Error("AI returned invalid format. Please try again.");
-    }
+    const quiz = JSON.parse(cleanedText);
+    return quiz.questions || [];
   } catch (error) {
-    console.error("Error Generating Quiz", error);
-    throw new Error("Failed to generate Quiz questions");
+    console.error("Error Generating Quiz:", error);
+    if (error instanceof SyntaxError) {
+      throw new Error("AI returned an invalid format. Please try again.");
+    }
+    throw new Error(error.message || "Failed to generate Quiz questions");
   }
 }
 
@@ -102,8 +105,9 @@ export const saveQuizResult = async (questions, answers, score) => {
       )
       .join("\n\n");
 
+    const industry = user.industry || "professional";
     const improvementPrompt = `
-      The user got the following ${user.industry} technical interview questions wrong:
+      The user got the following ${industry} technical interview questions wrong:
 
       ${wrongQuestionsText}
 

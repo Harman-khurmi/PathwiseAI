@@ -1,7 +1,13 @@
 "use client";
 
 import { useId } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Bar,
   BarChart,
@@ -23,14 +29,15 @@ const SalaryChart = ({ salaryData, isMounted }) => {
       transition={{ duration: 0.5, delay: 0.4 }}
       className="w-full"
     >
-      <Card className="group overflow-hidden rounded-xl border-3 border-[#55C7F1]/10 bg-[#55C7F1]/5 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.003] hover:border-[#55C7F1]/25">
+      <Card className="group border-brand-primary/10 bg-brand-primary/5 hover:border-brand-primary/25 overflow-hidden rounded-xl border-3 shadow-none transition-all duration-400 ease-in-out hover:scale-[1.003]">
         <CardHeader className="pb-2">
           <div className="space-y-1">
             <CardTitle className="text-xl font-black md:text-2xl">
               Salary Ranges By Roles
             </CardTitle>
             <CardDescription className="text-primary/70 group-hover:text-primary text-xs font-black transition-all duration-400 ease-in-out md:text-sm">
-              Displaying Minimum, Median, And Maximum Salaries (In Thousands USD)
+              Displaying Minimum, Median, And Maximum Salaries (In Thousands
+              USD)
             </CardDescription>
           </div>
         </CardHeader>
@@ -82,8 +89,8 @@ const SalaryChart = ({ salaryData, isMounted }) => {
                       content={({ active, payload, label }) => {
                         if (active && payload && payload.length) {
                           return (
-                            <div className="bg-background/80 min-w-[150px] rounded-2xl border-3 border-[#55C7F1]/30 p-4 shadow-2xl backdrop-blur-xl">
-                              <p className="mb-2 border-b-2 border-[#55C7F1]/20 pb-1 text-sm font-black">
+                            <div className="bg-background/80 border-brand-primary/30 min-w-[150px] rounded-2xl border-3 p-4 shadow-2xl backdrop-blur-xl">
+                              <p className="border-brand-primary/20 mb-2 border-b-2 pb-1 text-sm font-black">
                                 {label}
                               </p>
                               <div className="space-y-1.5">
@@ -95,7 +102,7 @@ const SalaryChart = ({ salaryData, isMounted }) => {
                                     <span className="text-muted-foreground/80">
                                       {item.name}:
                                     </span>
-                                    <span className="text-[#55C7F1]">
+                                    <span className="text-brand-primary">
                                       ${item.value}k
                                     </span>
                                   </div>
@@ -128,7 +135,7 @@ const SalaryChart = ({ salaryData, isMounted }) => {
                   </BarChart>
                 </ResponsiveContainer>
               ) : (
-                <div className="h-full w-full animate-pulse rounded-3xl bg-[#55C7F1]/5" />
+                <div className="bg-brand-primary/5 h-full w-full animate-pulse rounded-3xl" />
               )}
             </div>
           </div>
