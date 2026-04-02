@@ -13,80 +13,83 @@
 
 ![PathwiseAI Light Demo](screenshots/hero.png)
 
-**PathwiseAI** is a comprehensive, AI-powered career management platform designed to guide professionals through every stage of their career journey. From building ATS-optimized resumes and professional cover letters to generating real-time industry insights and conducting mock interviews, PathwiseAI leverages the power of Google Gemini AI to provide personalized, role-specific guidance.
+**PathwiseAI** is a comprehensive, next-generation career management platform driven by advanced AI. Designed to guide professionals through every pivotal stage of their career journey, it empowers users with tools ranging from ATS-optimized resume building and targeted cover letter generation to real-time, data-driven industry insights and interactive mock interviews. Leverage the robust capabilities of Google Gemini AI to receive deeply personalized, role-specific guidance and elevate your professional trajectory.
 
-This project was built as a **full-scale personal learning project** to showcase modern frontend development, backend integration, AI implementation, and performance optimization using the latest web technologies.
+This repository serves as a **full-scale production-ready learning project** illustrating modern frontend paradigms, resilient backend architecture, seamless AI integration, web accessibility standards, and robust performance optimization.
 
 ---
 
-## 🌐 Live Demo
+### 🌐 Live Demo
 
 🔗 **Live Website**  
-👉 **[PathwiseAI](https://pathwiseai.harmancodes.site/)**
+👉 **[PathwiseAI](https://pathwiseai.harmancodes.site/)**  
+*(Analytics & Tracking Powered by Google Analytics & Vercel Analytics)*
 
 ---
 
-## 🎯 Key Highlights
+### 🎯 Key Highlights
 
-- **AI-Driven Personalization**: Tailors all career assets (resumes, cover letters) to specific job roles and industry expectations.
-- **Weekly Industry Insights**: Automated background jobs (via Inngest) to keep users updated on latest market trends and skill demands.
-- **ATS-Optimized Resume Builder**: A professional markdown editor with AI-powered content generation and PDF export.
-- **Mock Interview Simulator**: Realistic role-based interview practice with structured AI feedback on responses.
-- **Modern Tech Stack**: Built with Next.js 16, Tailwind CSS 4, and Framer Motion for a premium, responsive experience.
+- **AI-Driven Personalization**: Dynamically tailors all career assets (resumes, cover letters, mock assessments) to meticulously align with specific job roles and industry expectations.
+- **Automated Industry Insights**: Background jobs powered by Inngest orchestrate weekly updates, keeping users abreast of the latest market trends, compensation benchmarks, and skill pipelines.
+- **ATS-Optimized Resume Builder**: A premium, intuitive markdown editing experience paired with intelligent AI content generation and flawless one-click PDF export via `html2pdf.js`.
+- **Mock Interview Simulator**: Realistic, high-fidelity interview practice featuring structured, constructive AI feedback to dramatically improve communication skills and technical articulation.
+- **Production-Ready & Accessible**: Hand-polished for hydration stability, fully augmented with ARIA labels for assistive technologies, seamlessly integrated with Google Analytics, and rigorously optimized across diverse edge cases.
+- **Modern Tech Stack**: Supercharged by Next.js 16 (App Router), React 19, Tailwind CSS v4, and beautifully fluid Framer Motion animations.
 
 ---
 
-## 🛠️ Tech Stack & Tools
+### 🛠️ Tech Stack & Tools
 
 ### Frontend
-- **React 19** — Component-based architecture
-- **Next.js 16** — Server-side rendering and App Router
-- **Tailwind CSS 4** — Utility-first styling
-- **Framer Motion 12** — Animations and transitions
-- **Lucide React** — Premium icon set
-- **Recharts** — Dynamic data visualization for industry trends
+- **React 19** — Next-generation, concurrent component architecture
+- **Next.js 16** — Server-Side Rendering (SSR), App Router, and server actions
+- **Tailwind CSS 4** — Zero-runtime utility-first styling system
+- **Framer Motion 12** — Silky smooth, highly optimized micro-animations and transitions
+- **Lucide React** — Crisp, premium SVG iconography
+- **Recharts** — Engaging data visualization for granular industry trends
 
 ### Backend & AI
-- **Google Gemini 1.5/2.5 Flash** — Advanced AI content generation and analysis
-- **Prisma (ORM)** — Type-safe database management
-- **PostgreSQL (Neon DB)** — Serverless relational database
-- **Inngest** — Event-driven background jobs for periodic data updates
-- **Clerk** — Robust authentication and user management
+- **Google Gemini 1.5/2.5 Flash** — High-performance AI for nuanced content creation and sentiment analysis
+- **Prisma (ORM)** — Fully type-safe database querying and schema management
+- **PostgreSQL (Neon DB)** — Instantly scalable serverless relational database
+- **Inngest** — Resilient, event-driven background task workflows for periodic updates
+- **Clerk** — Robust, highly secure, and seamless authentication
 
-### Design & Utilities
-- **Figma** — UI/UX design and prototyping
-- **React Hook Form & Zod** — Type-safe form validation
-- **Sonner** — Elegant toast notifications
-- **UIW React MD Editor** — Professional markdown editing experience
-
----
-
-## ✨ Features
-
-- **Personalized Onboarding**: Tailors the entire platform based on your industry, role, and experience level.
-- **AI Career Guidance**: Continuous, personalized advice aligned with your professional growth trajectory.
-- **Smart Cover Letter Generator**: Creates role-specific cover letters that articulate your strengths and value.
-- **AI Resume Builder**: Builds structured, ATS-friendly resumes with one-click PDF export using `html2pdf.js`.
-- **Interactive Mock Interviews**: Simulated interviews with real-time feedback to refine communication and articulation.
-- **Data-Driven Insights**: Weekly updated reports on role demand, compensation benchmarks, and evolving skill requirements.
-- **Dark / Light Theme Support**: Fully responsive design with theme persistence.
+### Analytics, Dev-Ops & Design
+- **Google Analytics & Vercel Analytics** — Real-time performance and audience tracking
+- **Figma** — Bespoke UI/UX design and prototyping
+- **React Hook Form & Zod** — Bulletproof, type-safe schema validation
+- **Sonner** — Elegant, accessible toast notifications
+- **UIW React MD Editor** — Professional-grade markdown editing
 
 ---
 
-## 🎨 Design Process
+### ✨ Features
 
-All visuals and interactions were designed to feel professional and empowering, including:
+- **Personalized Onboarding**: A dynamic intake sequence that configures the entire platform to your specific industry, experience tier, and target role.
+- **Proactive Career Guidance**: Context-aware advice that constantly adapts to your professional growth goals.
+- **Smart Cover Letter Generator**: Synthesizes your strengths into compelling, role-specific cover letters in seconds.
+- **Precision Resume Builder**: Construct flawlessly structured, ATS-compliant resumes with out-of-the-box PDF rendering.
+- **Interactive Mock Interviews**: Engage in simulated, role-playing interviews and receive actionable, real-time rubric-based feedback.
+- **Data-Driven Insights**: Weekly aggregated reports on market demand, salary distributions, and evolving skill requirements.
+- **Seamless Theming**: Supports a beautifully crafted dark, light, and system-default theme with persistent toggles.
 
-- **Brand Identity**: Logo and color palette designed to inspire confidence and professional growth.
-- **Layout System**: Focused on clarity and ease of use for complex data-driven dashboards.
-- **Motion Design**: Subtle, micro-animations using Framer Motion to enhance the premium feel.
+---
+
+### 🎨 Design Process & Aesthetics
+
+The UI/UX approach was centered around creating a premium, empowering environment that feels both sophisticated and deeply accessible:
+
+- **Brand Identity**: Harmonious typography and color palettes explicitly engineered to evoke confidence and professionalism.
+- **Layout System**: Focused heavily on clarity, intuitive data presentation, and seamless navigation across complex dashboards.
+- **Motion Design**: Employed targeted micro-animations using Framer Motion to elevate the user experience without hindering performance or causing hydration mismatches.
 
 🔗 **Figma Design Portfolio**  
-👉 **[Harman Khurmi Figma](https://www.figma.com/@harmankhurmi)**
+👉 **[My Figma Profile](https://www.figma.com/@harmankhurmi)**
 
 ---
 
-## 📸 Screenshots & Mockups
+### 📸 Screenshots & Mockups
 
 ### Hero Section
 ![Hero Section Light](screenshots/hero-light.png)
@@ -103,17 +106,17 @@ All visuals and interactions were designed to feel professional and empowering, 
 
 ---
 
-## 📬 Contact
+### 📬 Contact & Creator
 
-**Harman Khurmi**  
+**Harmanpreet Singh**  
 🔗 [GitHub](https://github.com/Harman-khurmi) | [LinkedIn](https://www.linkedin.com/in/harmankhurmi/) | [Portfolio](https://harmanpreet.pop.site/)
 
-## ⚖️ License & Usage
+### ⚖️ License & Usage
 
-This project is a **personal portfolio project** created by **Harman Khurmi**.
+This project is a **flagship personal portfolio application** developed entirely by **Harmanpreet Singh**.
 
-The source code is publicly visible for **recruiters, reviewers, and educational reference only**.
+The source code remains publicly accessible strictly for **recruiters, engineering interviews, and educational demonstration**.
 
-You are **not allowed to copy, redistribute, modify, or claim this project as your own work**.
+You are **prohibited from copying, redistributing, modifying, or representing this project as your own intellectual property**.
 
-If you would like to use any part of this project, please contact the author for permission.
+If you wish to utilize any underlying logic, architectures, or designs within this project, please directly contact the author for express permission.
