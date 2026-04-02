@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/sonner";
 import ScrollToTop from "@/components/ScrollToTop";
 import InDevelopment from "@/components/in-development";
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -62,6 +63,26 @@ export default function RootLayout({ children }) {
           className={`${manrope.variable} ${inter.variable} antialiased`}
           suppressHydrationWarning
         >
+          {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+            <>
+              <Script
+                strategy="afterInteractive"
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+              />
+              <Script
+                id="google-analytics"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+                  `,
+                }}
+              />
+            </>
+          )}
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -78,6 +99,7 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
           <Analytics/>
         </body>
+        
       </html>
     </ClerkProvider>
   );
