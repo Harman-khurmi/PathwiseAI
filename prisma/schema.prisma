@@ -54,6 +54,7 @@ model IndustryInsight {
   recommendedSkills String[]
   
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   nextUpdate DateTime
 
   @@index([industry])
@@ -90,6 +91,7 @@ model Resume {
   userId String @unique
   user User @relation(fields: [userId], references: [id])
   content String @db.Text
+  formData Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

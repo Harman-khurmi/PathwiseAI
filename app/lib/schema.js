@@ -30,8 +30,15 @@ export const onboardingSchema = z.object({
 export const contactSchema = z.object({
   email: z.string().email("Invalid email address"),
   mobile: z.string().optional(),
-  linkedin: z.string().optional(),
-  twitter: z.string().optional(),
+  socialLinks: z
+    .array(
+      z.object({
+        platform: z.string(),
+        url: z.string().url("Invalid URL"),
+      })
+    )
+    .max(4, "Maximum 4 social links allowed")
+    .optional(),
 });
 
 export const entrySchema = z

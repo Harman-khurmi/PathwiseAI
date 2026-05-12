@@ -20,6 +20,10 @@ import { Sparkles, PlusCircle, X, Pencil, Save, Loader2 } from "lucide-react";
 import { improveWithAI } from "@/actions/resume";
 import { toast } from "sonner";
 import useFetch from "@/hooks/use-fetch";
+import { cn } from "@/lib/utils";
+
+const inputStyles =
+  "border-2 border-brand-primary/10 bg-brand-primary/5 hover:bg-brand-primary/10 hover:border-brand-primary/25 focus:border-brand-primary/50! focus-visible:border-brand-primary/50! focus-visible:ring-brand-primary/30! focus-visible:ring-[3px]! transition-all duration-400 outline-none";
 
 const formatDisplayDate = (dateString) => {
   if (!dateString) return "";
@@ -128,17 +132,17 @@ export function EntryForm({ type, entries, onChange }) {
         {entries.map((item, index) => (
           <Card
             key={index}
-            className="rounded-2xl border-2 border-muted/20 bg-muted/5"
+            className="rounded-2xl border-2 border-brand-primary/10 bg-brand-primary/5 shadow-brand-primary/5 transition-all duration-300"
           >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-bold uppercase tracking-tight">
                 {item.title} @ {item.organization}
               </CardTitle>
               <Button
-                variant="destructive"
+                variant="ghost"
                 size="icon"
                 type="button"
-                className="h-8 w-8 rounded-lg shadow-sm"
+                className="h-8 w-8 text-rose-500 hover:text-white hover:bg-rose-500/80 shrink-0 transition-colors rounded-lg bg-transparent border-none"
                 onClick={() => handleDelete(index)}
               >
                 <X className="h-4 w-4" />
@@ -146,7 +150,7 @@ export function EntryForm({ type, entries, onChange }) {
             </CardHeader>
             <CardContent>
               <p className="text-xs text-muted-foreground font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-primary/40 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-brand-primary/70 animate-pulse" />
                 {item.current
                   ? `${item.startDate} - Present`
                   : `${item.startDate} - ${item.endDate}`}
@@ -160,7 +164,7 @@ export function EntryForm({ type, entries, onChange }) {
       </div>
 
       {isAdding && (
-        <Card className="rounded-[32px] border-2 border-primary/20 bg-muted/10 backdrop-blur-sm overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
+        <Card className="rounded-[32px] border-2 border-brand-primary/10 bg-brand-primary/5 backdrop-blur-sm shadow-xl shadow-brand-primary/5 overflow-hidden animate-in fade-in slide-in-from-top-4 duration-300">
           <CardHeader>
             <CardTitle className="text-xl font-black">Add {type}</CardTitle>
           </CardHeader>
@@ -171,7 +175,7 @@ export function EntryForm({ type, entries, onChange }) {
                 <Input
                   placeholder="Software Engineer"
                   {...register("title")}
-                  className="rounded-xl border-muted/40"
+                  className={cn("h-14 font-medium", inputStyles)}
                   aria-invalid={!!errors.title}
                 />
                 {errors.title && (
@@ -185,7 +189,7 @@ export function EntryForm({ type, entries, onChange }) {
                 <Input
                   placeholder="Organization"
                   {...register("organization")}
-                  className="rounded-xl border-muted/40"
+                  className={cn("h-14 font-medium", inputStyles)}
                   aria-invalid={!!errors.organization}
                 />
                 {errors.organization && (
@@ -202,7 +206,7 @@ export function EntryForm({ type, entries, onChange }) {
                 <Input
                   type="month"
                   {...register("startDate")}
-                  className="rounded-xl border-muted/40"
+                  className={cn("h-14 font-medium", inputStyles)}
                   aria-invalid={!!errors.startDate}
                 />
                 {errors.startDate && (
@@ -217,7 +221,7 @@ export function EntryForm({ type, entries, onChange }) {
                   type="month"
                   {...register("endDate")}
                   disabled={current}
-                  className="rounded-xl border-muted/40"
+                  className={cn("h-14 font-medium", inputStyles)}
                   aria-invalid={!!errors.endDate}
                 />
                 {errors.endDate && (
@@ -228,12 +232,12 @@ export function EntryForm({ type, entries, onChange }) {
               </div>
             </div>
 
-            <div className="flex items-center space-x-3 bg-muted/30 p-4 rounded-xl border border-muted/30">
+            <div className="flex items-center space-x-3 bg-brand-primary/5 p-4 rounded-xl border-2 border-brand-primary/10">
               <input
                 type="checkbox"
                 id={`current-${type}`}
                 {...register("current")}
-                className="h-5 w-5 rounded-lg border-muted/40 text-primary cursor-pointer transition-all duration-200"
+                className="h-5 w-5 rounded-lg border-brand-primary/20 text-brand-primary cursor-pointer transition-all duration-200 focus:ring-brand-primary"
               />
               <label
                 htmlFor={`current-${type}`}
@@ -246,30 +250,30 @@ export function EntryForm({ type, entries, onChange }) {
             <div className="space-y-3">
               <div className="flex items-center justify-between ml-1">
                 <label className="text-sm font-bold">Description</label>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  onClick={handleImproveDescription}
-                  disabled={isImproving || !description}
-                  className="rounded-lg h-8 px-3 transition-all hover:bg-primary/5 active:scale-95"
-                >
-                  {isImproving ? (
-                    <>
-                      <Loader2 className="h-3 w-3 mr-1.5 animate-spin" />
-                      Improving...
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="h-3 w-3 mr-1.5 text-primary" />
-                      Improve with AI
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleImproveDescription}
+                    disabled={isImproving || !description}
+                    className="rounded-lg h-8 px-3 transition-all border-brand-primary/20 text-brand-primary hover:bg-brand-primary/10 active:scale-95"
+                  >
+                    {isImproving ? (
+                      <>
+                        <Loader2 className="h-3 w-3 mr-1.5 animate-spin text-brand-primary" />
+                        Improving...
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="h-3 w-3 mr-1.5 text-brand-primary" />
+                        Improve with AI
+                      </>
+                    )}
+                  </Button>
               </div>
               <Textarea
                 placeholder={`Tell us about your ${type.toLowerCase()}...`}
-                className="h-36 rounded-xl border-muted/40 resize-none leading-relaxed"
+                className={cn("h-36 resize-none leading-relaxed", inputStyles)}
                 {...register("description")}
                 aria-invalid={!!errors.description}
               />
@@ -288,10 +292,15 @@ export function EntryForm({ type, entries, onChange }) {
                 reset();
                 setIsAdding(false);
               }}
+              className="rounded-xl border-brand-primary/20 hover:bg-brand-primary/10"
             >
               Cancel
             </Button>
-            <Button type="button" onClick={handleAdd}>
+            <Button 
+               type="button" 
+               onClick={handleAdd}
+               className="rounded-xl bg-brand-primary hover:bg-brand-hover text-white shadow-brand-primary/20"
+            >
               <PlusCircle className="h-4 w-4 mr-2" />
               Add Entry
             </Button>
@@ -301,7 +310,7 @@ export function EntryForm({ type, entries, onChange }) {
 
       {!isAdding && (
         <Button
-          className="w-full"
+          className="w-full rounded-xl border-2 border-dashed border-brand-primary/30 bg-brand-primary/5 text-brand-primary hover:bg-brand-primary/10 hover:border-brand-primary/50 transition-all duration-300 h-14"
           variant="outline"
           onClick={() => setIsAdding(true)}
         >
