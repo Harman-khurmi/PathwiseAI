@@ -1,3 +1,117 @@
+// // This is your Prisma schema file,
+// // learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model User {
+//   id    String @id @default(uuid())
+//   ClerkUserId String @unique
+//   email String @unique
+//   name  String?
+//   imageUrl String?
+//   industry String?
+//   industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @default(now()) @updatedAt
+
+//   //profile fields
+//   bio String?
+//   experience Int?
+//   skills String[]
+//   resumeUrl String?
+
+//   assessments Assessment[]
+//   resume Resume[]
+//   coverLetters CoverLetter[]
+// }
+
+// model IndustryInsight {
+//   id String @id @default(uuid())
+//   industry String @unique
+//   users User[]  //users in the industry
+//   salaryRanges Json[] // array of { role : string , min : float , max : float , median : float , location : string? }
+//   nextUpdate DateTime
+
+//   //industry trends
+//   growthRate Float
+//   demandLevel DemandLevel //high, medium, low
+//   topSkills String[] //most in demand skills
+
+//   //market conditions
+//   marketOutlook MarketOutlook //positive, negative, neutral
+//   keyTrends String[] //key trends in the industry
+
+//   //learning suggestions
+//   recommendedSkills String[]
+
+//   // createdAt DateTime @default(now())
+//   // updatedAt DateTime @updatedAt
+//     createdAt DateTime @default(now())
+//   updatedAt DateTime @default(now()) @updatedAt
+//   nextUpdate DateTime
+
+//   @@index([industry])
+// }
+
+// enum DemandLevel {
+//   HIGH
+//   MEDIUM
+//   LOW
+// }
+
+// enum MarketOutlook {
+//   POSITIVE
+//   NEGATIVE
+//   NEUTRAL
+// }
+
+// model Assessment {
+//   id String @id @default(uuid())
+//   userId String
+//   user User @relation(fields: [userId], references: [id])
+//   quizScore Float // overall quiz quizScore
+//   questions Json[] //Array of questions with answers + User's answer + isCorrect
+//   category String // technical , behavioural
+//   improvementTip String? //AI generated improvement tip
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @default(now()) @updatedAt
+
+//   @@index([userId])
+// }
+
+// model Resume {
+//   id  String @id @default(uuid())
+//   userId String @unique
+//   user User @relation(fields: [userId], references: [id])
+//   content String @db.Text
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @default(now()) @updatedAt
+// }
+
+// model CoverLetter {
+//   id String @id @default(uuid())
+//   userId String
+//   user User @relation(fields: [userId], references: [id])
+//   content String
+//   jobDescription String?
+//   companyName String
+//   jobTitle String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @default(now()) @updatedAt
+
+//   @@index([userId])
+// }
+
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -14,46 +128,47 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  ClerkUserId String @unique
-  email String @unique
-  name  String?
-  imageUrl String?
-  industry String?
+  id              String           @id @default(uuid())
+  ClerkUserId     String           @unique
+  email           String           @unique
+  name            String?
+  imageUrl        String?
+  industry        String?
   industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @default(now()) @updatedAt
 
-  //profile fields
-  bio String?
+  // profile fields
+  bio        String?
   experience Int?
-  skills String[]
-  resumeUrl String?
+  skills     String[]
+  resumeUrl  String?
 
-  assessments Assessment[]
-  resume Resume[]
+  assessments  Assessment[]
+  resume       Resume[]
   coverLetters CoverLetter[]
 }
 
 model IndustryInsight {
-  id String @id @default(uuid())
-  industry String @unique
-  users User[]  //users in the industry
+  id           String @id @default(uuid())
+  industry     String @unique
+  users        User[] // users in the industry
   salaryRanges Json[] // array of { role : string , min : float , max : float , median : float , location : string? }
-  
-  //industry trends
-  growthRate Float
-  demandLevel DemandLevel //high, medium, low
-  topSkills String[] //most in demand skills
 
-  //market conditions
-  marketOutlook MarketOutlook //positive, negative, neutral
-  keyTrends String[] //key trends in the industry
+  // industry trends
+  growthRate  Float
+  demandLevel DemandLevel // high, medium, low
+  topSkills   String[] // most in demand skills
 
-  //learning suggestions
+  // market conditions
+  marketOutlook MarketOutlook // positive, negative, neutral
+  keyTrends     String[] // key trends in the industry
+
+  // learning suggestions
   recommendedSkills String[]
-  
-  createdAt DateTime @default(now())
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
   nextUpdate DateTime
 
   @@index([industry])
@@ -72,38 +187,38 @@ enum MarketOutlook {
 }
 
 model Assessment {
-  id String @id @default(uuid())
-  userId String
-  user User @relation(fields: [userId], references: [id])
-  quizScore Float // overall quiz quizScore
-  questions Json[] //Array of questions with answers + User's answer + isCorrect
-  category String // technical , behavioural
-  improvementTip String? //AI generated improvement tip
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             String   @id @default(uuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  quizScore      Float // overall quiz score
+  questions      Json[] // Array of questions with answers + user's answer + isCorrect
+  category       String // technical, behavioural
+  improvementTip String? // AI generated improvement tip
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
 
   @@index([userId])
 }
 
 model Resume {
-  id  String @id @default(uuid())
-  userId String @unique
-  user User @relation(fields: [userId], references: [id])
-  content String @db.Text
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  content   String   @db.Text
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model CoverLetter {
-  id String @id @default(uuid())
-  userId String
-  user User @relation(fields: [userId], references: [id])
-  content String
+  id             String   @id @default(uuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  content        String
   jobDescription String?
-  companyName String
-  jobTitle String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  companyName    String
+  jobTitle       String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
 
   @@index([userId])
 }
