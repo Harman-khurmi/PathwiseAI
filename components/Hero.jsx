@@ -32,7 +32,7 @@ const Hero = () => {
                   stiffness: 100,
                 }}
                 viewport={{ once: true }}
-                className="bg-[#3C71FA]/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-[#3C71FA]/25 hover:shadow-primary/55 cursor-default transition-shadow duration-400 ease-in w-fit mb-3 md:mb-4"
+                className="bg-brand-secondary/5 py-1.5 md:py-2 px-4 rounded-full font-semibold self-center md:self-start shadow-inner shadow-brand-secondary/25 hover:shadow-primary/55 cursor-default transition-shadow duration-400 ease-in w-fit mb-3 md:mb-4"
               >
                 <p className="text-xs lg:text-base lg:px-2">
                   Your Personal AI Career Coach
@@ -82,7 +82,7 @@ const Hero = () => {
                   stiffness: 100,
                 }}
                 viewport={{ once: true }}
-                className="w-[90%] md:w-[95%] lg:w-[85%]  mx-auto md:ml-0 mt-4 text-[#080D1A] dark:text-white"
+                className="w-[90%] md:w-[95%] lg:w-[85%]  mx-auto md:ml-0 mt-4 text-brand-dark-alt dark:text-white"
               >
                 PathwiseAI is your AI career coach — guiding you through
                 resumes, interviews, skills, and growth with clarity.
