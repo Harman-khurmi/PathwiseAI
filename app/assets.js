@@ -1,7 +1,7 @@
 import lightLogo from "../public/Logo-Light.svg";
 import darkLogo from "../public/Logo-Dark.svg";
-import heroImage from "../public/Hero Image Light.png";
-import heroImageDark from "../public/Hero Image Dark.png";
+import heroImage from "../public/Hero-Image-Light.png";
+import heroImageDark from "../public/Hero-Image-Dark.png";
 import sparkle from "../public/sparkle.svg";
 import sparkleLight from "../public/sparkle-light.svg";
 import quotes from "../public/quotesPrimary.svg";
